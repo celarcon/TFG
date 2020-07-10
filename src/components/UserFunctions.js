@@ -1,6 +1,6 @@
-import axios from 'axios'
+import axios from 'axios';
 
-export const register = newUser => {
+export var register = newUser => {
   return axios
     .post('users/register', {
       first_name: newUser.first_name,
@@ -11,9 +11,9 @@ export const register = newUser => {
     .then(response => {
       console.log('Registered')
     })
-}
+};
 
-export const login = user => {
+export var login = user => {
   return axios
     .post('users/login', {
       email: user.email,
@@ -28,10 +28,10 @@ export const login = user => {
     })
 }
 
-export const getProfile = user => {
+export var getProfile = user => {
   return axios
     .get('users/profile', {
-      //headers: { Authorization: ` ${this.getToken()}` }
+      headers: { Authorization: ` ${this.getToken()}` }
     })
     .then(response => {
       console.log(response)
