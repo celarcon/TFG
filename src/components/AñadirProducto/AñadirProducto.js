@@ -19,18 +19,21 @@ export default class AñadirProducto extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
         this.onAfterChange = this.onAfterChange.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
     };
+
     componentDidMount() {
-        const token = localStorage.usertoken
-        const decoded = jwt_decode(token)
+        const token = localStorage.usertoken;
+        const decoded = jwt_decode(token);
         this.setState({
-          id: decoded._id,
-        })
-      }
+          id: decoded._id
+        });
+    };
+
     async handleSubmit(e) {
         //e.prevenetDefault();
         const res = await axios.post('http://localhost:4000/products', { 
-            idPropietario:this.state.id,
+            idPropietario: this.state.id,
             nombre: this.state.nombre, 
             descripcion: this.state.descripcion,
             precioMin: this.state.precioMin,
