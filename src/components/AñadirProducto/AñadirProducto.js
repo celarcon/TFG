@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
-import { Slider } from 'antd';//Para el slider
 import jwt_decode from 'jwt-decode';
+
+//antDesing
+import { Slider } from 'antd';//Para el slider
 import 'antd/dist/antd.css';
 
 export default class AñadirProducto extends Component {
@@ -10,10 +11,12 @@ export default class AñadirProducto extends Component {
         super(props);
         this.state = {
             id: ' ',
+            idPropietario: ' ',
             nombre: ' ',
             descripcion: ' ',
             precioMin: '0',
-            precioMax: '500'
+            precioMax: '500',
+            selectedFile: null
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,20 +29,36 @@ export default class AñadirProducto extends Component {
         const token = localStorage.usertoken;
         const decoded = jwt_decode(token);
         this.setState({
-          id: decoded._id
+          idPropietario: decoded._id
         });
     };
 
     async handleSubmit(e) {
         //e.prevenetDefault();
-        const res = await axios.post('http://localhost:4000/products', { 
-            idPropietario: this.state.id,
+        var res = await axios.post('http://localhost:4000/products', { 
+            idPropietario: this.state.idPropietario,
             nombre: this.state.nombre, 
             descripcion: this.state.descripcion,
             precioMin: this.state.precioMin,
-            precioMax: this.state.precioMax
+            precioMax: this.state.precioMax,
         });
-        console.log(res.data);
+        this.setState({id:res.data._id});
+        //subir archivo
+        if(this.state.selectedFile !== null){
+            
+            //var productoId = this.state.idPropietario;
+            
+            const formData = new FormData();
+
+            formData.append(
+                'file0',
+                this.state.selectedFile,
+                this.state.selectedFile.name
+            );
+
+            await axios.post('http://localhost:4000/products/upload-image/'+this.state.id, formData);
+        }
+        console.log('el id de mi producto'+this.state.id);
     };
     handleInputChange(e) {
         const { value, name } = e.target;
@@ -56,6 +75,13 @@ export default class AñadirProducto extends Component {
     onAfterChange(value) {
         console.log('onAfterChange: ', value);
       };
+
+    fileChange = (e)=>{
+        this.setState({
+            selectedFile: e.target.files[0]
+        });
+      };
+
     render() {
         return (
             <div className="container">
@@ -76,6 +102,8 @@ export default class AñadirProducto extends Component {
                             onAfterChange={this.onAfterChange}
                             required
                         />
+                        <input type="file" name="file0" onChange={this.fileChange}></input>
+                        <br/>
                         <button className="btn btn-primary btn-block" type="submit">Añadir producto</button>
                     </form>
                 </div>
