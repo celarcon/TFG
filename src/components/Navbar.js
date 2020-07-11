@@ -12,7 +12,7 @@ class Landing extends Component {
     const loginRegLink = (
       <ul className="navbar-nav">
         <li className="nav-item">
-          <Link to="/login" className="nav-link">
+          <Link to="/" className="nav-link">
             Login
           </Link>
         </li>
@@ -26,6 +26,11 @@ class Landing extends Component {
 
     const userLink = (
       <ul className="navbar-nav">
+        <li className="nav-item">
+          <Link to="/home" className="nav-link">
+            Home
+          </Link>
+        </li>
         <li className="nav-item">
           <Link to="/profile" className="nav-link">
             Usuario
@@ -51,7 +56,7 @@ class Landing extends Component {
 
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded">
-        <button
+        {/*<button
           className="navbar-toggler"
           type="button"
           data-toggle="collapse"
@@ -62,18 +67,8 @@ class Landing extends Component {
         >
           <span className="navbar-toggler-icon" />
         </button>
-
-        <div
-          className="collapse navbar-collapse justify-content-md-center"
-          id="navbarsExample10"
-        >
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link to="/" className="nav-link">
-                Home
-              </Link>
-            </li>
-          </ul>
+        */}
+        <div className="collapse navbar-collapse justify-content-md-center" id="navbarsExample10" >
           {localStorage.usertoken ? userLink : loginRegLink}
         </div>
       </nav>
