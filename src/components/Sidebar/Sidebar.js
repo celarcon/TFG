@@ -1,31 +1,46 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
+import jwt_decode from 'jwt-decode';
+import { Link } from 'react-router-dom'
+
 import { Layout, Menu } from 'antd';
 import {
-    AppstoreOutlined,
-    BarChartOutlined,
-    CloudOutlined,
-    ShopOutlined,
-    TeamOutlined,
     UserOutlined,
     UploadOutlined,
-    VideoCameraOutlined,
-    FileOutlined
+    TagOutlined 
   } from '@ant-design/icons';
 
 const { Sider } = Layout;
-
+var key = 0;
 
 class Sidebar extends Component {
     
     state = {
         collapsed: false,
+        productos:[],
+        idPropietario: ' '
     };
 
     onCollapse = collapsed => {
         console.log(collapsed);
         this.setState({ collapsed });
     };
-    
+
+    async componentDidMount(){
+
+        //sacamos el id del propietario
+        const token = localStorage.usertoken;
+        const decoded = jwt_decode(token);
+        this.setState({
+          idPropietario: decoded._id
+        });
+        console.log(this.state.idPropietario);
+        const res = await Axios.get('http://localhost:4000/products/misProductos/' + decoded._id);
+        this.setState({productos: res.data});
+
+        //console.log(this.state.idPropietario);
+    };
+
 render(){
     return(
         <Layout>
@@ -40,31 +55,22 @@ render(){
     >
       <div className="logo" />
       <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
-        <Menu.Item key="1" icon={<UserOutlined />}>
-          nav 1
+      <Menu.Item key="user" icon={<UserOutlined />}>
+      <Link to="/profile">
+            Perfil
+          </Link>
         </Menu.Item>
-        <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-          nav 2
+      {
+        this.state.productos.map(productos =>
+            <Menu.Item key={key++} icon={<TagOutlined />}>
+                {productos.nombre}
+                </Menu.Item>)
+        }  
+        <Menu.Item key="upload" icon={<UploadOutlined />}>
+            <Link to="/AñadirProducto">
+                Añadir Producto 
+            </Link>
         </Menu.Item>
-        <Menu.Item key="3" icon={<UploadOutlined />}>
-          nav 3
-        </Menu.Item>
-        <Menu.Item key="4" icon={<BarChartOutlined />}>
-          nav 4
-        </Menu.Item>
-        <Menu.Item key="5" icon={<CloudOutlined />}>
-          nav 5
-        </Menu.Item>
-        <Menu.Item key="6" icon={<AppstoreOutlined />}>
-          nav 6
-        </Menu.Item>
-        <Menu.Item key="7" icon={<TeamOutlined />}>
-          nav 7
-        </Menu.Item>
-        <Menu.Item key="8" icon={<ShopOutlined />}>
-          nav 8
-          </Menu.Item>
-        <Menu.Item key="9" icon={<FileOutlined />} />
       </Menu>
     </Sider>
       </Layout>
