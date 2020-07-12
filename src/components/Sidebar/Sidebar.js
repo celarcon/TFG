@@ -11,10 +11,9 @@ import {
   } from '@ant-design/icons';
 
 const { Sider } = Layout;
-var key = 0;
 
 class Sidebar extends Component {
-    
+
     state = {
         collapsed: false,
         productos:[],
@@ -42,37 +41,39 @@ class Sidebar extends Component {
     };
 
 render(){
+  let key = 0;
     return(
-        <Layout>
-    <Sider
-      style={{
-        overflow: 'auto',
-        height: '100vh',
-        position: 'fixed',
-        left: 0,
-      }}
-      collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}
-    >
-      <div className="logo" />
-      <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
-      <Menu.Item key="user" icon={<UserOutlined />}>
-      <Link to="/profile">
-            Perfil
-          </Link>
-        </Menu.Item>
-      {
-        this.state.productos.map(productos =>
-            <Menu.Item key={key++} icon={<TagOutlined />}>
-                {productos.nombre}
-                </Menu.Item>)
-        }  
-        <Menu.Item key="upload" icon={<UploadOutlined />}>
-            <Link to="/AñadirProducto">
-                Añadir Producto 
-            </Link>
-        </Menu.Item>
-      </Menu>
-    </Sider>
+      <Layout>
+        <Sider
+          style={{
+            overflow: 'auto',
+            height: '100vh',
+            position: 'fixed',
+            left: 0,
+          }}
+          collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
+
+          <div className="logo" />
+          <Menu theme="dark" mode="inline">{/* defaultSelectedKeys={['user']}>*/}
+          <Menu.Item key="user" icon={<UserOutlined />}>
+          <Link to="/profile">
+                Perfil
+              </Link>
+            </Menu.Item>
+          {
+            this.state.productos.map(productos =>
+                <Menu.Item key={key++} icon={<TagOutlined />}>
+                    {productos.nombre}
+                    </Menu.Item>)
+            }  
+            <Menu.Item key="upload" icon={<UploadOutlined />}>
+                <Link to="/AñadirProducto">
+                    Añadir Producto 
+                </Link>
+            </Menu.Item>
+
+          </Menu>
+        </Sider>
       </Layout>
     );
 };

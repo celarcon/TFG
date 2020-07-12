@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
 class Landing extends Component {
   logOut(e) {
@@ -47,7 +47,7 @@ class Landing extends Component {
           </Link>
         </li>
         <li className="nav-item">
-          <Link onClick={this.logOut.bind(this)} className="nav-link">
+          <Link to ="/" onClick={this.logOut.bind(this)} className="nav-link">
             Salir
           </Link>
         </li>
