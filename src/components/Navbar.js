@@ -56,7 +56,7 @@ class Landing extends Component {
 
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded">
-        {/*<button
+        <button
           className="navbar-toggler"
           type="button"
           data-toggle="collapse"
@@ -67,7 +67,6 @@ class Landing extends Component {
         >
           <span className="navbar-toggler-icon" />
         </button>
-        */}
         <div className="collapse navbar-collapse justify-content-md-center" id="navbarsExample10" >
           {localStorage.usertoken ? userLink : loginRegLink}
         </div>

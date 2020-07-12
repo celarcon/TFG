@@ -6,8 +6,8 @@ import Landing from './components/Landing';
 import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
-import AñadirProductos from './components/AñadirProducto/AñadirProducto';
-import MisProductos from './components/MisProductos/MisProductos';
+//import AñadirProductos from './components/AñadirProducto/AñadirProducto';
+//import MisProductos from './components/MisProductos/MisProductos';
 
 function App() {
   return (
@@ -19,8 +19,8 @@ function App() {
            <Route exact path="/register" component={Register} />
            <Route exact path="/home" component={Landing} />
            <Route exact path="/profile" component={Profile} />
-           <Route exact path="/AñadirProducto" component={AñadirProductos} />
-           <Route exact path="/MisProductos" component={MisProductos}/>
+           {/*<Route exact path="/AñadirProducto" component={AñadirProductos} />
+           <Route exact path="/MisProductos" component={MisProductos}/>*/}
          </div>
        </div>
     </Router>
