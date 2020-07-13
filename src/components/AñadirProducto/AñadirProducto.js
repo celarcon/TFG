@@ -60,11 +60,13 @@ export default class AñadirProducto extends Component {
         }
         console.log('el id de mi producto'+this.state.id);
     };
+
     handleInputChange(e) {
         const { value, name } = e.target;
         this.setState({ [name]: value });
         console.log(value, name);
     };
+    
     onChange(e) {
         console.log('onChange: ', e);
         this.setState({precioMin: e[0]});

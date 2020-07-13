@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
+import logo from '../imagenes/logoTRADEAPP.svg';
+
 class Landing extends Component {
+  
   logOut(e) {
-    e.preventDefault()
-    localStorage.removeItem('usertoken')
-    this.props.history.push(`/`)
+    e.preventDefault();
+    localStorage.removeItem('usertoken');
+    this.props.history.push(`/`);
   }
 
   render() {
@@ -55,19 +58,28 @@ class Landing extends Component {
     )
 
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded">
+      <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor:"#002140"}}>
         <button
           className="navbar-toggler"
           type="button"
           data-toggle="collapse"
-          data-target="#navbarsExample10"
-          aria-controls="navbarsExample10"
+          data-target="#navbar"
+          aria-controls="navbar"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon" />
         </button>
-        <div className="collapse navbar-collapse justify-content-md-center" id="navbarsExample10" >
+        {localStorage.usertoken ?
+        <Link to="/Home">
+          <img src={logo} alt="logo" style={{width:"20px"}}/> <span style={{color:"white", fontSize:"20px"}}>TRADEAPP</span>
+        </Link>
+        :
+        <Link to="/">
+          <img src={logo} alt="logo" style={{width:"20px"}}/> <span style={{color:"white", fontSize:"20px"}}>TRADEAPP</span>
+        </Link>
+        }
+        <div className="collapse navbar-collapse justify-content-md-center" id="navbar" >
           {localStorage.usertoken ? userLink : loginRegLink}
         </div>
       </nav>
@@ -75,4 +87,4 @@ class Landing extends Component {
   }
 }
 
-export default withRouter(Landing)
+export default withRouter(Landing);

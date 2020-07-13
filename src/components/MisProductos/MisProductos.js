@@ -11,6 +11,9 @@ class MisProductos extends Component {
 
     async componentDidMount(){
 
+        if(!localStorage.usertoken)
+            this.props.history.push(`/`); 
+
         //sacamos el id del propietario
         const token = localStorage.usertoken;
         const decoded = jwt_decode(token);
@@ -30,8 +33,8 @@ class MisProductos extends Component {
                 <h1>MisProductos</h1>
                 <ul className="list-group">
                 {
-                    this.state.productos.map(productos =>
-                    <li className="list-group-item">
+                    this.state.productos.map((productos, i)=>
+                    <li className="list-group-item" key={i} >
                         {productos.nombre}
                         <img src={'http://localhost:4000/products/get-image/'+productos.image} alt={productos.nombre} width="100"></img>
                         {productos.descripcion}

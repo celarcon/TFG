@@ -41,7 +41,6 @@ class Sidebar extends Component {
     };
 
 render(){
-  let key = 0;
     return(
       <Layout>
         <Sider
@@ -61,8 +60,8 @@ render(){
               </Link>
             </Menu.Item>
           {
-            this.state.productos.map(productos =>
-                <Menu.Item key={key++} icon={<TagOutlined />}>
+            this.state.productos.map((productos,i) =>
+                <Menu.Item key={i} icon={<TagOutlined />}>
                     {productos.nombre}
                     </Menu.Item>)
             }  

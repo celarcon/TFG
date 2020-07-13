@@ -19,12 +19,17 @@ export var login = user => {
       email: user.email,
       password: user.password
     })
-    .then(response => {
-      localStorage.setItem('usertoken', response.data);
-      return response.data;
+    .then(res=> {
+      console.log(res.data);
+      if (typeof res.data === 'string'){
+      localStorage.setItem('usertoken', res.data);
+      } else {
+        console.log("password incorrect");
+      }
+      return res.data;
     })
     .catch(err => {
-      console.log(err);
+      return console.log(err);
     })
 };
 
@@ -33,9 +38,9 @@ export var getProfile = user => {
     .get('users/profile', {
       headers: { Authorization: ` ${this.getToken()}` }
     })
-    .then(response => {
-      console.log(response);
-      return response.data;
+    .then(res => {
+      console.log(res);
+      return res.data;
     })
     .catch(err => {
       console.log(err);

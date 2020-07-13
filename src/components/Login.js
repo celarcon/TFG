@@ -27,7 +27,13 @@ class Login extends Component {
 
     login(user).then(res => {
       if (res) {
-        this.props.history.push(`/home`)
+        if(res.error === 'User does not exist'){
+          this.props.history.push(`/`);
+          alert(res.error);
+        }else{
+          this.props.history.push(`/home`);
+        }
+
       }
     })
   }

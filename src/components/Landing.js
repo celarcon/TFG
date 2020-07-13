@@ -7,9 +7,12 @@ import Usuario from './Profile';
 import AñadirProducto from './AñadirProducto/AñadirProducto';
 
 class Landing extends Component {
+
   render() {
     return (
+      
       <div>
+        {localStorage.usertoken ?
         <Router>
           <Sidebar />
           <Switch>
@@ -17,6 +20,7 @@ class Landing extends Component {
             <Route path="/profile" component={Usuario} />
           </Switch>
         </Router>
+        :this.props.history.push(`/`) }
       </div >
     )
   }
