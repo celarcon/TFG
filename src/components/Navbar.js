@@ -71,7 +71,7 @@ class Landing extends Component {
           <span className="navbar-toggler-icon" />
         </button>
         {localStorage.usertoken ?
-        <Link to="/Home">
+        <Link to="/home">
           <img src={logo} alt="logo" style={{width:"20px"}}/> <span style={{color:"white", fontSize:"20px"}}>TRADEAPP</span>
         </Link>
         :

@@ -58,7 +58,7 @@ export default class AñadirProducto extends Component {
 
             await axios.post('http://localhost:4000/products/upload-image/'+this.state.id, formData);
         }
-        console.log('el id de mi producto'+this.state.id);
+        console.log('el id de mi producto '+this.state.id);
     };
 
     handleInputChange(e) {
@@ -105,7 +105,7 @@ export default class AñadirProducto extends Component {
                             required
                         />
                         <input type="file" name="file0" onChange={this.fileChange}></input>
-                        <br/>
+                        <br/><br/>
                         <button className="btn btn-primary btn-block" type="submit">Añadir producto</button>
                     </form>
                 </div>

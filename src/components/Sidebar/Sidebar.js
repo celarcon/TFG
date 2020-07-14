@@ -17,14 +17,18 @@ class Sidebar extends Component {
     state = {
         collapsed: false,
         productos:[],
-        idPropietario: ' '
+        idPropietario: ' ',
+        idProdSelect:' '
     };
 
     onCollapse = collapsed => {
         console.log(collapsed);
         this.setState({ collapsed });
     };
-
+    prodSelec = e =>{
+      this.setState({idProdSelect: e.key});
+      console.log(this.state.idProdSelect);
+    }
     async componentDidMount(){
 
         //sacamos el id del propietario
@@ -60,20 +64,20 @@ render(){
               </Link>
             </Menu.Item>
           {
-            this.state.productos.map((productos,i) =>
-                <Menu.Item key={i} icon={<TagOutlined />}>
+            this.state.productos.map( productos =>
+                <Menu.Item key={productos._id} onClick={this.prodSelec} icon={<TagOutlined />}>
                     {productos.nombre}
                     </Menu.Item>)
             }  
             <Menu.Item key="upload" icon={<UploadOutlined />}>
-                <Link to="/AñadirProducto">
+                <Link to="/home/AñadirProducto">
                     Añadir Producto 
                 </Link>
             </Menu.Item>
 
           </Menu>
         </Sider>
-      </Layout>
+      </Layout> 
     );
 };
 }

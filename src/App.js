@@ -16,11 +16,11 @@ function App() {
          <Navbar/>
          <Route exact path="/" component={Login}/>
          <div className="container">
-           <Route exact path="/register" component={Register} />
-           <Route exact path="/home" component={Landing} />
-           <Route exact path="/profile" component={Profile} />
-           <Route exact path="/AñadirProducto" component={AñadirProductos} />
-           <Route exact path="/MisProductos" component={MisProductos}/>
+           <Route  path="/register" component={Register} />
+           <Route  path="/home" component={Landing} />
+           <Route  path="/profile" component={Profile} />
+           <Route  path="/AñadirProducto" component={AñadirProductos} />
+           <Route  path="/MisProductos" component={MisProductos}/>
          </div>
        </div>
     </Router>
