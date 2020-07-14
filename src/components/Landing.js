@@ -8,17 +8,26 @@ import AñadirProducto from './AñadirProducto/AñadirProducto';
 import Relacionados from './Relacionados/Relacionados';
 
 class Landing extends Component {
+  
+  state={
+    idProdSelecionado: null
+  };
+
+  prodSelecionado = (e)=>{
+    //this.setState({idProdSelecionado: e.key});
+    alert(e);
+  }
 
   render() {
     return (
       <div>
         {localStorage.usertoken ?
         <Router>
-          <Sidebar />
+          <Sidebar prodSelecionado={this.prodSelecionado}/>
           <Switch>
             <Route path="/home/AñadirProducto"  component={AñadirProducto} />
             <Route path="/profile" component={Usuario} />
-            <Route path="/relacionados" component={Relacionados} />
+            <Relacionados hola={this.state.idProdSelecionado}/>
           </Switch>
         </Router>
         :this.props.history.push(`/`) }

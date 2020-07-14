@@ -25,10 +25,15 @@ class Sidebar extends Component {
         console.log(collapsed);
         this.setState({ collapsed });
     };
+
     prodSelec = e =>{
-      this.setState({idProdSelect: e.key});
-      console.log(this.state.idProdSelect);
-    }
+      //this.setState({idProdSelect: e.key});
+      //console.log(this.state.idProdSelect);
+      //this.props.prodSelecionado(e);
+      console.log(e);
+      alert(e);
+    };
+
     async componentDidMount(){
 
         //sacamos el id del propietario
@@ -57,24 +62,25 @@ render(){
           collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
 
           <div className="logo" />
-          <Menu theme="dark" mode="inline">{/* defaultSelectedKeys={['user']}>*/}
-          <Menu.Item key="user" icon={<UserOutlined />}>
+          <Menu theme="dark" mode="inline">{/* defaultSelectedKeys={['user']}>*/} 
+          <Menu.Item defaultChecked key="user" icon={<UserOutlined />}>
           <Link to="/profile">
                 Perfil
               </Link>
             </Menu.Item>
           {
-            this.state.productos.map( productos =>
-                <Menu.Item key={productos._id} onClick={this.prodSelec} icon={<TagOutlined />}>
-                    {productos.nombre}
-                    </Menu.Item>)
-            }  
+            this.state.productos.map( (producto,i) =>
+                <Menu.Item key={i} onClick={this.prodSelec(producto._id)}  icon={<TagOutlined />}>
+                  <Link to="/relacionados">
+                  {producto.nombre} 
+                  </Link>
+                </Menu.Item>)
+          }
             <Menu.Item key="upload" icon={<UploadOutlined />}>
                 <Link to="/home/AñadirProducto">
                     Añadir Producto 
                 </Link>
             </Menu.Item>
-
           </Menu>
         </Sider>
       </Layout> 
