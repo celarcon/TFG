@@ -30,8 +30,8 @@ class Sidebar extends Component {
       //this.setState({idProdSelect: e.key});
       //console.log(this.state.idProdSelect);
       //this.props.prodSelecionado(e);
-      console.log(e);
-      alert(e);
+      console.log(e.key);
+      alert(e.key);
     };
 
     async componentDidMount(){
@@ -69,8 +69,8 @@ render(){
               </Link>
             </Menu.Item>
           {
-            this.state.productos.map( (producto,i) =>
-                <Menu.Item key={i} onClick={this.prodSelec(producto._id)}  icon={<TagOutlined />}>
+            this.state.productos.map(producto =>
+                <Menu.Item key={producto._id} onClick={this.prodSelec} icon={<TagOutlined />}>
                   <Link to="/relacionados">
                   {producto.nombre} 
                   </Link>

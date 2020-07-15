@@ -33,7 +33,7 @@ export default class AñadirProducto extends Component {
         });
     };
 
-    async handleSubmit(e) {
+     handleSubmit = async (e) => {
         //e.prevenetDefault();
         var res = await axios.post('http://localhost:4000/products', { 
             idPropietario: this.state.idPropietario,
@@ -78,7 +78,7 @@ export default class AñadirProducto extends Component {
         console.log('onAfterChange: ', value);
       };
 
-    fileChange = (e)=>{
+    fileChange = (e) =>{
         this.setState({
             selectedFile: e.target.files[0]
         });

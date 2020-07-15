@@ -27,7 +27,7 @@ class Landing extends Component {
           <Switch>
             <Route path="/home/AñadirProducto"  component={AñadirProducto} />
             <Route path="/profile" component={Usuario} />
-            <Relacionados hola={this.state.idProdSelecionado}/>
+            <Relacionados/>
           </Switch>
         </Router>
         :this.props.history.push(`/`) }
