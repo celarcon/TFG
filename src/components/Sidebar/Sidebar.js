@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import jwt_decode from 'jwt-decode';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 import { Layout, Menu } from 'antd';
 import {
@@ -9,6 +9,7 @@ import {
     UploadOutlined,
     TagOutlined 
   } from '@ant-design/icons';
+import Relacionados from '../Relacionados/Relacionados';
 
 const { Sider } = Layout;
 
@@ -17,8 +18,9 @@ class Sidebar extends Component {
     state = {
         collapsed: false,
         productos:[],
+        producto: null,
         idPropietario: ' ',
-        idProdSelect:' '
+        idProdSelect: null
     };
 
     onCollapse = collapsed => {
@@ -26,12 +28,14 @@ class Sidebar extends Component {
         this.setState({ collapsed });
     };
 
-    prodSelec = e =>{
-      //this.setState({idProdSelect: e.key});
+    prodSelec = async e =>{
+      this.setState({idProdSelect: e.key});
       //console.log(this.state.idProdSelect);
-      //this.props.prodSelecionado(e);
-      console.log(e.key);
-      alert(e.key);
+      //this.props.prodSelecionado(e.key);
+      //const res = await Axios.get('http://localhost:4000/products/' +  e.key );
+      //this.setState({ producto: res.data });
+      //console.log(res.data);
+      //alert(e.key);
     };
 
     async componentDidMount(){
@@ -83,6 +87,9 @@ render(){
             </Menu.Item>
           </Menu>
         </Sider>
+
+        <Relacionados ProdSelecionado={this.state.idProdSelect}/>
+        
       </Layout> 
     );
 };
