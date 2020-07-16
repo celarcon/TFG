@@ -9,7 +9,7 @@ import {
     UploadOutlined,
     TagOutlined 
   } from '@ant-design/icons';
-import Relacionados from '../Relacionados/Relacionados';
+
 
 const { Sider } = Layout;
 
@@ -17,10 +17,7 @@ class Sidebar extends Component {
 
     state = {
         collapsed: false,
-        productos:[],
-        producto: null,
-        idPropietario: ' ',
-        idProdSelect: null
+        productos:[]
     };
 
     onCollapse = collapsed => {
@@ -29,16 +26,10 @@ class Sidebar extends Component {
     };
 
     prodSelec = async e =>{
-      this.setState({idProdSelect: e.key});
-      //console.log(this.state.idProdSelect);
-      //this.props.prodSelecionado(e.key);
-      //const res = await Axios.get('http://localhost:4000/products/' +  e.key );
-      //this.setState({ producto: res.data });
-      //console.log(res.data);
-      //alert(e.key);
+      this.props.prodSelecionado(e);
     };
 
-    async componentDidMount(){
+    componentDidMount= async ()=>{
 
         //sacamos el id del propietario
         const token = localStorage.usertoken;
@@ -86,10 +77,7 @@ render(){
                 </Link>
             </Menu.Item>
           </Menu>
-        </Sider>
-
-        <Relacionados ProdSelecionado={this.state.idProdSelect}/>
-        
+        </Sider>   
       </Layout> 
     );
 };

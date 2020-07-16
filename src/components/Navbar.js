@@ -5,7 +5,7 @@ import logo from '../imagenes/logoTRADEAPP.svg';
 
 class Landing extends Component {
   
-  logOut(e) {
+  logOut= e =>{
     e.preventDefault();
     localStorage.removeItem('usertoken');
     this.props.history.push(`/`);

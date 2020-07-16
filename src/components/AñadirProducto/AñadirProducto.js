@@ -18,14 +18,9 @@ export default class AñadirProducto extends Component {
             precioMax: '500',
             selectedFile: null
         };
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.onChange = this.onChange.bind(this);
-        this.onAfterChange = this.onAfterChange.bind(this);
-        this.componentDidMount = this.componentDidMount.bind(this);
     };
 
-    componentDidMount() {
+    componentDidMount= ()=> {
         const token = localStorage.usertoken;
         const decoded = jwt_decode(token);
         this.setState({
@@ -61,21 +56,17 @@ export default class AñadirProducto extends Component {
         console.log('el id de mi producto '+this.state.id);
     };
 
-    handleInputChange(e) {
+    handleInputChange= e => {
         const { value, name } = e.target;
         this.setState({ [name]: value });
         console.log(value, name);
     };
     
-    onChange(e) {
+    onChange= e => {
         console.log('onChange: ', e);
         this.setState({precioMin: e[0]});
         this.setState({precioMax: e[1]});
         console.log('precioMax: ', this.state.precioMax);
-      };
-      
-    onAfterChange(value) {
-        console.log('onAfterChange: ', value);
       };
 
     fileChange = (e) =>{

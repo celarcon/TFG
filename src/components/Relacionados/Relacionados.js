@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
-
 class Relacionados extends Component {
+
+    componentWillReceiveProps(){
+        console.log(this.props.ProdSelecionado);
+    }
    
     render() {
-
         return (
             <div>
                 {/*
@@ -16,7 +18,6 @@ class Relacionados extends Component {
                     </li>
                 </ul>
                 */}
-                {this.props.ProdSelecionado}
             </div>
         )
     }

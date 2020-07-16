@@ -9,7 +9,7 @@ class MisProductos extends Component {
         idPropietario: ' '
     }
 
-    async componentDidMount(){
+     componentDidMount= async() =>{
 
         if(!localStorage.usertoken)
             this.props.history.push(`/`); 
