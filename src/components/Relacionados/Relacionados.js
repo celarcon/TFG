@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Relacionados extends Component {
 
-    componentWillReceiveProps(){
+    componentDidUpdate(){
         console.log(this.props.ProdSelecionado);
     }
    
