@@ -61,7 +61,7 @@ render(){
           <div className="logo" />
           <Menu theme="dark" mode="inline">{/* defaultSelectedKeys={['user']}>*/} 
           <Menu.Item defaultChecked key="user" icon={<UserOutlined />}>
-          <Link to="/profile">
+          <Link to="/Usuario">
                 Perfil
               </Link>
             </Menu.Item>

@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react'
 
 
-const Relacionados = ({ ProdSelecionado }) => {
+const Relacionados = ({ ProdSelecionado,ProdRelacionados }) => {
 
     useEffect(() => {
-        console.log("hola")
-        console.log(ProdSelecionado)
-    }, [ProdSelecionado])
+        console.log(ProdRelacionados)
+    }, [ProdSelecionado,ProdRelacionados])
 
     return (
         <div>
@@ -25,6 +24,7 @@ const Relacionados = ({ ProdSelecionado }) => {
                     </li>
                 </ul>
                 <h1>Productos relacionados con este producto:</h1>
+                    {ProdRelacionados ? ProdRelacionados.map(rel=><p>{rel.nombre}</p>) : <h1>No hay relacionados</h1>}
                 </div>
                 :
                 <h1>No hay ningun producto seleccionado</h1>

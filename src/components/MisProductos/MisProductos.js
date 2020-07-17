@@ -37,7 +37,10 @@ class MisProductos extends Component {
                     <li className="list-group-item" key={i} >
                         {productos.nombre}
                         <img src={'http://localhost:4000/products/get-image/'+productos.image} alt={productos.nombre} width="100"></img>
-                        {productos.descripcion}
+                        {productos.descripcion}  <br/>
+                        min {productos.precioMin}   <br/>
+                        max {productos.precioMax}
+
                     </li>
                     )
                 }
