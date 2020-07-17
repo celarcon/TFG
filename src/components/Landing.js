@@ -29,12 +29,10 @@ class Landing extends Component {
         {localStorage.usertoken ?
           <Router>
             <Sidebar prodSelecionado={this.prodSelec} />
-            <Switch>
-              
+            <Switch style={{ paddingLeft: '20%' }}>
               <Route path="/home/AñadirProducto" component={AñadirProducto} />
               <Route path="/Usuario" component={Usuario} />
               <Relacionados ProdSelecionado={this.state.producto} ProdRelacionados={this.state.relaciondos}/>
-
             </Switch>
           </Router>
           : this.props.history.push(`/`)}
