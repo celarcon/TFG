@@ -17,9 +17,9 @@ class Landing extends Component {
   };
   prodSelec = async e => {
     //this.setState({idProdSelect: e.key});
-    const res = await Axios.get('http://localhost:4000/products/' + e.key);
+    const res = await Axios.get('http://localhost:4000/products/' + e);
     this.setState({ producto: res.data });
-    console.log(res.data);
+    console.log(res.data._id);
   };
 
   render() {
@@ -28,10 +28,10 @@ class Landing extends Component {
         {localStorage.usertoken ?
           <Router>
             <Sidebar prodSelecionado={this.prodSelec} />
-            <Relacionados ProdSelecionado={this.state.producto} />
             <Switch>
               <Route path="/home/AñadirProducto" component={AñadirProducto} />
-              <Route path="/profile" component={Usuario} />
+              <Route path="/Usuario" component={Usuario} />
+              <Relacionados ProdSelecionado={this.state.producto} />
             </Switch>
           </Router>
           : this.props.history.push(`/`)}

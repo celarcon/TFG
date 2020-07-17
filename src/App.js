@@ -8,6 +8,8 @@ import Register from './components/Register';
 import Profile from './components/Profile/Profile';
 import AñadirProductos from './components/AñadirProducto/AñadirProducto';
 import MisProductos from './components/MisProductos/MisProductos';
+import Match from './components/Match/Match';
+import ProductoMatch from './components/Match/ProductoMatch';
 
 function App() {
   return (
@@ -16,11 +18,13 @@ function App() {
          <Navbar/>
          <Route exact path="/" component={Login}/>
          <div className="container">
-           <Route  path="/register" component={Register} />
-           <Route  path="/home" component={Landing} />
-           <Route  path="/profile" component={Profile} />
+           <Route  path="/Registro" component={Register} />
+           <Route  path="/Home" component={Landing} />
+           <Route  path="/Usuario" component={Profile} />
            <Route  path="/AñadirProducto" component={AñadirProductos} />
            <Route  path="/MisProductos" component={MisProductos}/>
+           <Route  path="/Match" component={Match}/>
+           <Route  path="/Match/ProductoMatch" component={ProductoMatch}/>
          </div>
        </div>
     </Router>

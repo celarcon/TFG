@@ -1,26 +1,36 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react'
 
-class Relacionados extends Component {
 
-    componentDidUpdate(){
-        console.log(this.props.ProdSelecionado);
-    }
-   
-    render() {
-        return (
+const Relacionados = ({ ProdSelecionado }) => {
+
+    useEffect(() => {
+        console.log("hola")
+        console.log(ProdSelecionado)
+    }, [ProdSelecionado])
+
+    return (
+        <div>
+            {ProdSelecionado ?
             <div>
-                {/*
-                 <ul className="list-group">
-                    <li className="list-group-item" key="miProducto" >
-                        {  this.state.producto.nombre}
-                        <img src={'http://localhost:4000/products/get-image/' +  this.state.producto.image} alt={ this.state.producto.nombre} width="100"></img>
-                        { this.state.producto.descripcion}
+                <h1>Mi producto</h1>
+                <ul>
+                    <li >
+                        {ProdSelecionado.nombre}
+                    </li>
+                    <li>    
+                        <img src={'http://localhost:4000/products/get-image/' + ProdSelecionado.image} alt={ProdSelecionado.nombre} width="100"></img>
+                    </li>
+                    <li>    
+                        {ProdSelecionado.descripcion}
                     </li>
                 </ul>
-                */}
-            </div>
-        )
-    }
+                <h1>Productos relacionados con este producto:</h1>
+                </div>
+                :
+                <h1>No hay ningun producto seleccionado</h1>
+            }
+        </div>
+    )
 }
 
-export default Relacionados;
+export default Relacionados

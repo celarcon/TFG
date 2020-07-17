@@ -25,11 +25,13 @@ class Sidebar extends Component {
         this.setState({ collapsed });
     };
 
-    prodSelec = async e =>{
-      this.props.prodSelecionado(e);
-    };
+    // prodSelec = async e =>{
+    //   this.props.prodSelecionado(e);
+    // };
 
     componentDidMount= async ()=>{
+
+      console.log(this.props)
 
         //sacamos el id del propietario
         const token = localStorage.usertoken;
@@ -65,7 +67,7 @@ render(){
             </Menu.Item>
           {
             this.state.productos.map(producto =>
-                <Menu.Item key={producto._id} onClick={this.prodSelec} icon={<TagOutlined />}>
+                <Menu.Item key={producto._id} onClick={()=>this.props.prodSelecionado(producto._id)} icon={<TagOutlined />}>
                   <Link to="/relacionados">
                   {producto.nombre} 
                   </Link>
