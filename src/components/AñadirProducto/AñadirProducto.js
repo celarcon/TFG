@@ -38,6 +38,7 @@ export default class AñadirProducto extends Component {
             precioMax: this.state.precioMax,
         });
         this.setState({id:res.data._id});
+
         //subir archivo
         if(this.state.selectedFile !== null){
             
@@ -92,7 +93,6 @@ export default class AñadirProducto extends Component {
                             defaultValue={[0, 500]}
                             max={500}
                             onChange={this.onChange}
-                            onAfterChange={this.onAfterChange}
                             required
                         />
                         <input type="file" name="file0" onChange={this.fileChange}></input>

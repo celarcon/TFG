@@ -26,6 +26,10 @@ class MisProductos extends Component {
 
         //console.log(this.state.idPropietario);
     }
+    eliminaProd = async (e) => {
+        console.log(e);
+        await Axios.delete('http://localhost:4000/products/' + e);
+    }
 
     render() {
         return (
@@ -40,7 +44,7 @@ class MisProductos extends Component {
                         {productos.descripcion}  <br/>
                         min {productos.precioMin}   <br/>
                         max {productos.precioMax}
-
+                        <button type="submit" onClick={()=>this.eliminaProd(productos._id)}>Elminar</button>
                     </li>
                     )
                 }
