@@ -20,7 +20,7 @@ class Landing extends Component {
     const res = await Axios.get('http://localhost:4000/products/' + e);
     const rel = await Axios.get('http://localhost:4000/products/relacionados/' + res.data._id)
     this.setState({ producto: res.data });
-    this.setState({relaciondos: rel.data.rel});
+    this.setState({relaciondos: rel.data.prodsRela});
   };
 
   render() {
