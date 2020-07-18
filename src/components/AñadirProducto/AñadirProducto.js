@@ -3,7 +3,7 @@ import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
 //antDesing
-import { Slider } from 'antd';//Para el slider
+import { Slider, InputNumber } from 'antd';//Para el slider
 import 'antd/dist/antd.css';
 
 export default class AñadirProducto extends Component {
@@ -52,7 +52,7 @@ export default class AñadirProducto extends Component {
                 this.state.selectedFile.name
             );
 
-            await axios.post('http://localhost:4000/products/upload-image/'+this.state.id, formData);
+            await axios.post('http://localhost:4000/products/upload-image/'+ res.data._id, formData);
         }
         console.log('el id de mi producto '+this.state.id);
     };
@@ -80,18 +80,32 @@ export default class AñadirProducto extends Component {
         return (
             <div className="container">
                 <div className="row text-center justify-content-center align-self-center">
-                    <form className="col-3" onSubmit={this.handleSubmit}>
-                        <h1 className="h3 font-weight-normal">Producto</h1>
+                    <form  onSubmit={this.handleSubmit}>
+                        <h1 >Producto</h1>
                         <label >Nombre producto</label>
                         <input type="text" name="nombre" onChange={this.handleInputChange} className="form-control" placeholder="Nombre producto" required autoFocus="" />
                         <label >Descripcion</label>
                         <textarea name="descripcion" onChange={this.handleInputChange} className="form-control mb-3" placeholder="Descripcion producto" required />
-                        <label >Rango precio</label>
+                        <label >Rango precio</label><br/>
+                        <InputNumber
+                            min={0}
+                            max={20}
+                            style={{ marginRight:'30px' }}
+                            //value={inputValue}
+                            //onChange={this.onChange}
+                        />
+                        <InputNumber
+                            min={0}
+                            max={20}
+                            style={{ marginLeft: '30px' }}
+                            //value={inputValue}
+                            //onChange={this.onChange}
+                        />
                         <Slider
                             range
                             step={1}
                             defaultValue={[0, 500]}
-                            max={500}
+                            min={0}
                             onChange={this.onChange}
                             required
                         />

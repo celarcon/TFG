@@ -48,7 +48,6 @@ class Sidebar extends Component {
 
 render(){
     return(
-      <Layout>
         <Sider
           style={{
             overflow: 'auto',
@@ -80,7 +79,6 @@ render(){
             </Menu.Item>
           </Menu>
         </Sider>   
-      </Layout> 
     );
 };
 }

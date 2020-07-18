@@ -20,15 +20,16 @@ class MisProductos extends Component {
         this.setState({
           idPropietario: decoded._id
         });
-        console.log(this.state.idPropietario);
+
         const res = await Axios.get('http://localhost:4000/products/misProductos/' + decoded._id);
         this.setState({productos: res.data});
-
-        //console.log(this.state.idPropietario);
     }
+
     eliminaProd = async (e) => {
         console.log(e);
         await Axios.delete('http://localhost:4000/products/' + e);
+        const res = await Axios.get('http://localhost:4000/products/misProductos/' + this.state.idPropietario);
+        this.setState({productos: res.data});
     }
 
     render() {
