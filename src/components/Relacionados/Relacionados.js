@@ -24,7 +24,13 @@ const Relacionados = ({ ProdSelecionado,ProdRelacionados }) => {
                     </li>
                 </ul>
                 <h1>Productos relacionados con este producto:</h1>
-                    {ProdRelacionados ? ProdRelacionados.map(rel=><p>{rel.nombre}</p>) : <h1>No hay relacionados</h1>}
+                    {ProdRelacionados ? 
+                    ProdRelacionados.map(rel=>
+                        <p>
+                            {rel.nombre}
+                            <button>Me interesa</button>
+                        </p>) : 
+                    <h1>No hay relacionados</h1>}
                 </div>
                 :
                 <h1>No hay ningun producto seleccionado</h1>
