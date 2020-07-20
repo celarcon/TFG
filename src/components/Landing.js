@@ -24,32 +24,33 @@ class Landing extends Component {
   };
 
   anadirInteresado = async e =>{
+
     //añadimos a interesados
     await Axios.post('http://localhost:4000/interesados/' + this.state.producto._id,
     {
       idInteresado: e
     }
     );
+
     //comprobamos si el otro producto esta interesado en el nuestro de ser asi lo añadimos a relacionados
-    var cond = await Axios.get('http://localhost:4000/interesados/' + this.state.producto._id,
-    {
-      idInteresado: e
-    })
-    console.log(cond.data)
-    /*if(cond.data === true)
+    var cond = await Axios.get('http://localhost:4000/interesados/' + this.state.producto._id +"-"+ e)
+    console.log( this.state.producto._id);
+    console.log(e);
+    console.log(cond);
+    if(cond.data == true)
     {
       console.log("productos relacionados");
       
       var usu1 =  await Axios.get('http://localhost:4000/products/'+ this.state.producto._id);
-      console.log(usu1);
-      var usu2 =  await Axios.get('http://localhost:4000/products/'+ e);
+      var usu2 =  await Axios.get('http://localhost:4000/products/'+e);
+
       await Axios.post('http://localhost:4000/relacionados/',{
-        idUsuario1: usu1.idPropietario,
-        idUsuario2: usu2.idPropietario,
+        idUsuario1: usu1.data.idPropietario,
+        idUsuario2: usu2.data.idPropietario,
         idProd1: this.state.producto._id,
         idProd2: e
       })
-    }else{ console.log("productos no relacionados")}*/
+    }else{ console.log("productos no relacionados")}
   };
 
   render() {
