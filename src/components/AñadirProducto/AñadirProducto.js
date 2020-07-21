@@ -69,6 +69,14 @@ export default class AñadirProducto extends Component {
         this.setState({precioMax: e[1]});
         console.log('precioMax: ', this.state.precioMax);
       };
+    inputNumberMin = e =>{
+        console.log(e);
+        this.setState({precioMin: e});
+    }
+    inputNumberMax = e =>{
+        console.log(e);
+        this.setState({precioMax: e});
+    }
 
     fileChange = (e) =>{
         this.setState({
@@ -77,6 +85,8 @@ export default class AñadirProducto extends Component {
       };
 
     render() {
+        const {precioMin} = this.state;
+        const {precioMax} = this.state;
         return (
             <div className="container">
                 <div className="row text-center justify-content-center align-self-center">
@@ -89,23 +99,26 @@ export default class AñadirProducto extends Component {
                         <label >Rango precio</label><br/>
                         <InputNumber
                             min={0}
-                            max={20}
-                            style={{ marginRight:'30px' }}
-                            //value={inputValue}
-                            //onChange={this.onChange}
+                            style={{ marginRight: '50px' }}
+                            value={precioMin}
+                            onChange={this.inputNumberMin}
                         />
+
                         <InputNumber
-                            min={0}
-                            max={20}
-                            style={{ marginLeft: '30px' }}
-                            //value={inputValue}
-                            //onChange={this.onChange}
+                            min={precioMin}
+                            max={500}
+                            style={{ marginLeft: '50px' }}
+                            value={precioMax}
+                            onChange={this.inputNumberMax}
                         />
+
                         <Slider
                             range
                             step={1}
                             defaultValue={[0, 500]}
                             min={0}
+                            max={500}
+                            value={[this.state.precioMin,this.state.precioMax]}
                             onChange={this.onChange}
                             required
                         />
