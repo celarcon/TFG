@@ -37,7 +37,7 @@ class Landing extends Component {
     console.log( this.state.producto._id);
     console.log(e);
     console.log(cond);
-    if(cond.data == true)
+    if(cond.data === true)
     {
       console.log("productos relacionados");
       
