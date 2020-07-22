@@ -1,41 +1,28 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import jwt_decode from 'jwt-decode';
+import { Link } from 'react-router-dom';
 
 //antDesing
 import { Slider, InputNumber } from 'antd';//Para el slider
 import 'antd/dist/antd.css';
 
-export default class AñadirProducto extends Component {
-    state = {
-            id: ' ',
-            idPropietario: ' ',
-            nombre: ' ',
-            descripcion: ' ',
-            precioMin: '0',
-            precioMax: '500',
-            selectedFile: null
-        }
-
-
-    componentDidMount= ()=> {
-        const token = localStorage.usertoken;
-        const decoded = jwt_decode(token);
-        this.setState({
-          idPropietario: decoded._id
-        });
-    };
-
-     handleSubmit = async (e) => {
+export class EditarProductos extends Component {
+    state ={
+        nombre: ' ',
+        descripcion: ' ',
+        precioMin: '0',
+        precioMax: '500',
+        selectedFile: null
+    }
+    handleSubmit = async (e) => {
         //e.prevenetDefault();
-        var res = await axios.post('http://localhost:4000/products', { 
-            idPropietario: this.state.idPropietario,
+        console.log(this.props.location.state.id._id);
+        await axios.put('http://localhost:4000/products/'+this.props.location.state.id._id ,{ 
             nombre: this.state.nombre, 
             descripcion: this.state.descripcion,
             precioMin: this.state.precioMin,
             precioMax: this.state.precioMax,
         });
-        this.setState({id:res.data._id});
 
         //subir archivo
         if(this.state.selectedFile !== null){
@@ -50,9 +37,8 @@ export default class AñadirProducto extends Component {
                 this.state.selectedFile.name
             );
 
-            await axios.post('http://localhost:4000/products/upload-image/'+ res.data._id, formData);
+            await axios.post('http://localhost:4000/products/upload-image/'+ this.props.location.state.id._id, formData);
         }
-        console.log('el id de mi producto '+this.state.id);
     };
 
     handleInputChange= e => {
@@ -80,18 +66,19 @@ export default class AñadirProducto extends Component {
         this.setState({
             selectedFile: e.target.files[0]
         });
-      };
+    };
 
     render() {
         const {precioMin} = this.state;
         const {precioMax} = this.state;
         return (
-            <div className="container">
+            <div>
+                <div className="container">
                 <div className="row text-center justify-content-center align-self-center">
                     <form  onSubmit={this.handleSubmit}>
-                        <h1 >Producto</h1>
+                        <h1 >Edita producto</h1>
                         <label >Nombre producto</label>
-                        <input type="text" name="nombre" onChange={this.handleInputChange} className="form-control" placeholder="Nombre producto" required autoFocus="" />
+                        <input type="text" name="nombre"  onChange={this.handleInputChange} className="form-control" placeholder="Nombre producto" required autoFocus="" />
                         <label >Descripcion</label>
                         <textarea name="descripcion" onChange={this.handleInputChange} className="form-control mb-3" placeholder="Descripcion producto" required />
                         <label >Rango precio</label><br/>
@@ -122,10 +109,15 @@ export default class AñadirProducto extends Component {
                         />
                         <input type="file" name="file0" onChange={this.fileChange}></input>
                         <br/><br/>
-                        <button className="btn btn-primary btn-block" type="submit">Añadir producto</button>
+                        
+                        <button className="btn btn-primary btn-block" type="submit">Editar producto</button>
+                        <Link to="/MisProductos">Volver</Link>
                     </form>
-                </div>
             </div>
+            </div>
+        </div>
         )
     }
 }
+
+export default EditarProductos;

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import jwt_decode from 'jwt-decode';
+
 
 class MisProductos extends Component {
 
@@ -46,6 +48,7 @@ class MisProductos extends Component {
                         min {productos.precioMin}   <br/>
                         max {productos.precioMax}
                         <button type="submit" onClick={()=>this.eliminaProd(productos._id)}>Elminar</button>
+                        <Link to={{pathname:"/EditarProducto", state:{id:productos}}}>editar</Link>
                     </li>
                     )
                 }

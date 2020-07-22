@@ -9,6 +9,7 @@ import Profile from './components/Profile/Profile';
 import AñadirProductos from './components/AñadirProducto/AñadirProducto';
 import MisProductos from './components/MisProductos/MisProductos';
 import Match from './components/Match/Match';
+import EditarProductos from './components/MisProductos/EditarProductos'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
            <Route  path="/AñadirProducto" component={AñadirProductos} />
            <Route  path="/MisProductos" component={MisProductos}/>
            <Route  path="/Match" component={Match}/>
+           <Route path="/EditarProducto" component={EditarProductos}/>
          </div>
        </div>
     </Router>
