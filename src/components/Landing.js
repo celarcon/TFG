@@ -23,6 +23,12 @@ class Landing extends Component {
     this.setState({relaciondos: rel.data.prodsRela});
   };
 
+  elimiarInteresado = async e =>{
+    await Axios.delete('http://localhost:4000/interesados/'+this.state.producto._id+'&'+e)
+
+    console.log("Ya no me interesa ")
+  }
+
   anadirInteresado = async e =>{
 
     //añadimos a interesados
@@ -62,7 +68,12 @@ class Landing extends Component {
             <Switch >
               <Route path="/home/AñadirProducto" component={AñadirProducto} />
               <Route path="/Usuario" component={Usuario} />
-              <Relacionados ProdSelecionado={this.state.producto} ProdRelacionados={this.state.relaciondos} anadirInteresado={this.anadirInteresado}/>
+              <Relacionados 
+                ProdSelecionado={this.state.producto} 
+                ProdRelacionados={this.state.relaciondos} 
+                anadirInteresado={this.anadirInteresado}
+                elimiarInteresado={this.elimiarInteresado}
+                />
             </Switch>
             <Sidebar prodSelecionado={this.prodSelec} />
             </Layout>

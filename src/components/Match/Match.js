@@ -5,9 +5,7 @@ import ProductosMatch from './ProductosMatch';
 
 export default class Match extends Component {
     state={
-
-        relacionados:[],
-        prods:[]
+        relacionados:[]
     }
 
     componentDidMount= async()=>{
@@ -17,13 +15,24 @@ export default class Match extends Component {
         var rel = await Axios.get('http://localhost:4000/relacionados/' + decoded._id);
         this.setState({relacionados: rel.data});
     }
+    componentWillReceiveProps= async()=>{
+        const token = localStorage.usertoken;
+        const decoded = jwt_decode(token);
 
+        var rel = await Axios.get('http://localhost:4000/relacionados/' + decoded._id);
+        this.setState({relacionados: rel.data});
+    }
+    eliminaProd = async(e) => {
+        await Axios.delete('http://localhost:4000/relacionados/' + e);
+        console.log(e)
+        console.log("botonpulsado")
+    }
     render() {
         return (
             <div>
                 <h2>Tus productos relacionados</h2>
                 {this.state.relacionados.map((rel,i)=>
-                    <ProductosMatch key={i} prod={rel}/>
+                    <ProductosMatch eliminaProd={this.eliminaProd} prod={rel} key={i} />
                 )}
             </div>
         )

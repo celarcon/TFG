@@ -2,27 +2,13 @@ import React, { Component } from 'react';
 
 
 class Relacionados extends Component {
+
     render() {
     return (
         <div>
             {this.props.ProdSelecionado ?
             <div>
                 <h1>Mi producto</h1>
-                {/*EJEMPLO LISTADO*/}
-                <div className="card mb-3" style={{width:'100%'}}>
-                    <div className="row no-gutters">
-                        <div className="col-md-4">
-                        <img src={'http://localhost:4000/products/get-image/' + this.props.ProdSelecionado.image} alt={this.props.ProdSelecionado.nombre} width="100"/>
-                        </div>
-                        <div className="col-md-8">
-                            <div className="card-body">
-                                <h5 className="card-title">{this.props.ProdSelecionado.nombre}</h5>
-                                <p className="card-text"> {this.props.ProdSelecionado.descripcion}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/*EJEMPLO LISTADO*/}
                 <ul>
                     <li >
                         {this.props.ProdSelecionado.nombre}
@@ -40,6 +26,7 @@ class Relacionados extends Component {
                         <p>
                             {rel.nombre}
                             <button onClick={()=>this.props.anadirInteresado(rel._id)}>Me interesa</button>
+                            <button onClick={()=>this.props.elimiarInteresado(rel._id)}>Ya no me interesa</button>
                         </p>) : 
                     <h1>No hay relacionados</h1>}
                 </div>
