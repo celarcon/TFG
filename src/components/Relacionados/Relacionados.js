@@ -5,7 +5,7 @@ class Relacionados extends Component {
 
     render() {
     return (
-        <div>
+        <div style={{marginLeft:'20%'}}>
             {this.props.ProdSelecionado ?
             <div>
                 <h1>Mi producto</h1>
@@ -22,11 +22,11 @@ class Relacionados extends Component {
                 </ul>
                 <h1>Productos relacionados con este producto:</h1>
                     {this.props.ProdRelacionados ? 
-                    this.props.ProdRelacionados.map(rel=>
+                    this.props.ProdRelacionados.map((rel,i)=>
                         <p>
                             {rel.nombre}
-                            <button onClick={()=>this.props.anadirInteresado(rel._id)}>Me interesa</button>
-                            <button onClick={()=>this.props.elimiarInteresado(rel._id)}>Ya no me interesa</button>
+                            <button key={rel._id} onClick={()=>this.props.anadirInteresado(rel._id)}>Me interesa</button>
+                            <button key={i}onClick={()=>this.props.elimiarInteresado(rel._id)}>Ya no me interesa</button>
                         </p>) : 
                     <h1>No hay relacionados</h1>}
                 </div>

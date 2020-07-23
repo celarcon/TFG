@@ -39,7 +39,7 @@ class Landing extends Component {
     );
 
     //comprobamos si el otro producto esta interesado en el nuestro de ser asi lo añadimos a relacionados
-    var cond = await Axios.get('http://localhost:4000/interesados/' + this.state.producto._id +"-"+ e)
+    var cond = await Axios.get('http://localhost:4000/interesados/' + this.state.producto._id +"&"+ e)
     console.log( this.state.producto._id);
     console.log(e);
     console.log(cond);
