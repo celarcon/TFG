@@ -15,17 +15,16 @@ export default class Match extends Component {
         var rel = await Axios.get('http://localhost:4000/relacionados/' + decoded._id);
         this.setState({relacionados: rel.data});
     }
-    componentWillReceiveProps= async()=>{
-        const token = localStorage.usertoken;
-        const decoded = jwt_decode(token);
 
-        var rel = await Axios.get('http://localhost:4000/relacionados/' + decoded._id);
-        this.setState({relacionados: rel.data});
-    }
     eliminaProd = async(e) => {
         await Axios.delete('http://localhost:4000/relacionados/' + e);
         console.log(e)
         console.log("botonpulsado")
+        const token = localStorage.usertoken;
+        const decoded = jwt_decode(token);
+        this.setState({relacionados:[]});
+        var rel = await Axios.get('http://localhost:4000/relacionados/' + decoded._id);
+        this.setState({relacionados: rel.data});
     }
     render() {
         return (

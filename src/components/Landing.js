@@ -18,8 +18,10 @@ class Landing extends Component {
   prodSelec = async e => {
     //this.setState({idProdSelect: e.key});
     const res = await Axios.get('http://localhost:4000/products/' + e);
-    const rel = await Axios.get('http://localhost:4000/products/relacionados/' + res.data._id)
+    const rel = await Axios.get('http://localhost:4000/products/relacionados/' + res.data._id);
+    this.setState({ producto: null });
     this.setState({ producto: res.data });
+    this.setState({relaciondos: []});
     this.setState({relaciondos: rel.data.prodsRela});
   };
 
@@ -39,7 +41,7 @@ class Landing extends Component {
     );
 
     //comprobamos si el otro producto esta interesado en el nuestro de ser asi lo añadimos a relacionados
-    var cond = await Axios.get('http://localhost:4000/interesados/' + this.state.producto._id +"&"+ e)
+    var cond = await Axios.get('http://localhost:4000/interesados/' + e +"&"+ this.state.producto._id)
     console.log( this.state.producto._id);
     console.log(e);
     console.log(cond);

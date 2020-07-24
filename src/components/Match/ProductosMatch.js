@@ -26,7 +26,7 @@ export default class ProductosMatch extends Component {
             <div style={{marginTop:'50px'}}>
                 {this.state.prod1.nombre} - 
                 {this.state.prod2.nombre}
-                    <button>{this.state.id}</button>
+                <button>Contactar</button>
                 <button onClick={()=>this.props.eliminaProd(this.state.id)}>Elminar</button>
             </div>
         )
