@@ -26,7 +26,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container" style={{backgroundColor: 'white'}}>
         <div className="col-sm-8 mx-auto">
           <h1 className="text-center">Perfil</h1>
         </div>

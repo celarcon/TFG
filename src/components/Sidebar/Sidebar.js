@@ -57,7 +57,7 @@ render(){
           }}
           collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
 
-          <div className="logo" />
+          <div className="logo"/>
           <Menu theme="dark" mode="inline">{/* defaultSelectedKeys={['user']}>*/} 
           <Menu.Item defaultChecked key="user" icon={<UserOutlined />}>
           <Link to="/Usuario">

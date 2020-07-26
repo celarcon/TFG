@@ -28,17 +28,28 @@ export default class ProdRelacionado extends Component {
     }
     render() {
         return (
-            <div>
-                {this.props.rel.nombre}
-                <img src={'http://localhost:4000/products/get-image/' + this.props.rel.image} alt={this.props.rel.nombre} width="100"></img>
+            <div className="row" style={
+                {border:'0.5px solid #002140',
+                padding: '10px',
+                 display:'flex',
+                 alignItems:'center',
+                 backgroundColor:'white',
+                 marginBottom:'20px'}}>
+                <div className="col-sm-12 col-md-12 col-lg-4">
+                    <img src={'http://localhost:4000/products/get-image/' + this.props.rel.image} alt={this.props.rel.nombre} height="100"></img>
+                </div>
+                <div className="col-sm-12 col-md-6 col-lg-4">
+                    <p>Nombre:{this.props.rel.nombre}</p>
+                    <p>Definición:{this.props.rel.nombre}</p>
+                </div>
                 {this.state.interesado ?
-                    <p>
+                    <div className="col-sm-12 col-md-6 col-lg-4">
                         <button key={this.props.i} onClick={this.elimiarInteresado} >Ya no me interesa</button>
-                    </p>
+                    </div>
                     :
-                    <p>
+                    <div className="col-sm-12 col-md-6 col-lg-4">
                         <button key={this.props.rel._id} onClick={this.anadirInteresado}>Me interesa</button>
-                    </p>}
+                    </div>}
             </div>
         )
     }
