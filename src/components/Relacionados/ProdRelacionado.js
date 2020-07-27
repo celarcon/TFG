@@ -1,5 +1,30 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
+import {  notification } from 'antd';
+
+
+const openNotificationSuccess = () => {
+  notification['success']({
+    message: `Añadido a interesados `,
+    description:
+      'Has añadido un producto a tu lista de interesados,'+
+       'si a este producto tambien le interesa el tuyo podras contactar con el en la pestaña de Productos con Match',
+       style: {
+        width: 300,
+      }
+  });
+};
+
+const openNotificationDelete = () => {
+    notification['error']({
+      message: `Eliminado de interesados `,
+      description:
+        'Este producto ha sido eliminado de tu lista de interesados de tu producto seleccionado ,',
+         style: {
+          width: 300,
+        }
+    });
+  };
 
 export default class ProdRelacionado extends Component {
     state = {
@@ -18,13 +43,14 @@ export default class ProdRelacionado extends Component {
     elimiarInteresado = async () => {
         this.props.elimiarInteresado(this.props.rel._id);
         var cond = await Axios.get('http://localhost:4000/interesados/' + this.state.idProdSelect + "&" + this.props.rel._id);
-        this.setState({ interesado: cond.data })
-
+        this.setState({ interesado: cond.data });
+        openNotificationDelete();
     }
     anadirInteresado = async () => {
         this.props.anadirInteresado(this.props.rel._id);
         var cond = await Axios.get('http://localhost:4000/interesados/' + this.state.idProdSelect + "&" + this.props.rel._id);
-        this.setState({ interesado: cond.data })
+        this.setState({ interesado: cond.data });
+        openNotificationSuccess();
     }
     render() {
         return (

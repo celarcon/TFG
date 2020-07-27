@@ -62,7 +62,7 @@ class Landing extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         {localStorage.usertoken ?
           <Router>
             <Layout>
@@ -80,7 +80,7 @@ class Landing extends Component {
             </Layout>
           </Router>
           : this.props.history.push(`/`)}
-      </div >
+      </React.Fragment>
     )
   }
 }
