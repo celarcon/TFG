@@ -69,11 +69,11 @@ export default class ProdRelacionado extends Component {
                     <p>Definición:{this.props.rel.nombre}</p>
                 </div>
                 {this.state.interesado ?
-                    <div className="col-sm-12 col-md-6 col-lg-4">
+                    <div className="col-sm-12 col-md-8 col-lg-4">
                         <button key={this.props.i} onClick={this.elimiarInteresado} >Ya no me interesa</button>
                     </div>
                     :
-                    <div className="col-sm-12 col-md-6 col-lg-4">
+                    <div className="col-sm-12 col-md-8 col-lg-4">
                         <button key={this.props.rel._id} onClick={this.anadirInteresado}>Me interesa</button>
                     </div>}
             </div>

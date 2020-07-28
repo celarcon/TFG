@@ -1,32 +1,32 @@
 import React, { Component } from 'react'
-import { login } from './UserFunctions'
+import { login } from './AdminFunctions'
 
-class Login extends Component {
+class Admin extends Component {
 
   state = {
-      email: '',
+      name: '',
       password: '',
       errors: {}
   }
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value })
+    console.log([e.target.name]+ e.target.value )
   }
   onSubmit = e => {
     e.preventDefault()
-
-    const user = {
-      email: this.state.email,
+    const admin = {
+      name: this.state.name,
       password: this.state.password
     }
 
-    login(user).then(res => {
+    login(admin).then(res => {
       if (res) {
-        if(res.error === 'User does not exist'){
-          this.props.history.push(`/`);
+        if(res.error === 'Admin does not exist'){
+          this.props.history.push(`/Admin`);
           alert(res.error);
         }else{
-          this.props.history.push(`/home`);
+          this.props.history.push(`/InfoAdmin`);
         }
 
       }
@@ -39,15 +39,15 @@ class Login extends Component {
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
             <form noValidate onSubmit={this.onSubmit}>
-              <h1 className="h3 mb-3 font-weight-normal">Acceder a TradeApp</h1>
+              <h1 className="h3 mb-3 font-weight-normal">Acceder como administrador</h1>
               <div className="form-group">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="name">nombre</label>
                 <input
-                  type="email"
+                  type="text"
                   className="form-control"
-                  name="email"
-                  placeholder="Email"
-                  value={this.state.email}
+                  name="name"
+                  placeholder="nombre"
+                  value={this.state.name}
                   onChange={this.onChange}
                 />
               </div>
@@ -75,4 +75,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default Admin;

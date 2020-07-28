@@ -9,7 +9,9 @@ import Profile from './components/Profile/Profile';
 import AñadirProductos from './components/AñadirProducto/AñadirProducto';
 import MisProductos from './components/MisProductos/MisProductos';
 import Match from './components/Match/Match';
-import EditarProductos from './components/MisProductos/EditarProductos'
+import EditarProductos from './components/MisProductos/EditarProductos';
+import Admin from './components/Admin/Admin';
+import InfoAdmin from './components/Admin/InforAdmin';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
            <Route  path="/MisProductos" component={MisProductos}/>
            <Route  path="/Match" component={Match}/>
            <Route path="/EditarProducto" component={EditarProductos}/>
+           <Route path="/Admin" component={Admin}/>
+           <Route path="/InfoAdmin" component={InfoAdmin}/>
          </div>
        </div>
     </Router>
