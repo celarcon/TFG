@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Axios from 'axios';
-import Relacionados from './Relacionados/Relacionados';
 import { Layout} from 'antd';
-
+import Relacionados from './Relacionados/Relacionados';
 import Sidebar from './Sidebar/Sidebar';
 import Usuario from './Profile/Profile';
 import AñadirProducto from './AñadirProducto/AñadirProducto';
@@ -14,6 +13,7 @@ class Landing extends Component {
     producto: null,
     relaciondos: []
   };
+
   prodSelec = async e => {
     //this.setState({idProdSelect: e.key});
     const res = await Axios.get('http://localhost:4000/products/' + e);
@@ -65,7 +65,7 @@ class Landing extends Component {
       <React.Fragment>
         {localStorage.usertoken ?
           <Router>
-            <Layout>
+            <Layout  style={{backgroundColor:'white'}}>
             <Switch >
               <Route path="/home/AñadirProducto" component={AñadirProducto} />
               <Route path="/Usuario" component={Usuario} />
