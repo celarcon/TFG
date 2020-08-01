@@ -6,6 +6,7 @@ import Relacionados from './Relacionados/Relacionados';
 import Sidebar from './Sidebar/Sidebar';
 import Usuario from './Profile/Profile';
 import AñadirProducto from './AñadirProducto/AñadirProducto';
+import UsuarioRelacionado from './UsuarioRelacionado/UsuarioRelacionado';
 
 class Landing extends Component {
 
@@ -69,6 +70,7 @@ class Landing extends Component {
             <Switch >
               <Route path="/home/AñadirProducto" component={AñadirProducto} />
               <Route path="/Usuario" component={Usuario} />
+              <Route path="/UsuarioRelacionado" component={UsuarioRelacionado}/>
               <Relacionados 
                 ProdSelecionado={this.state.producto} 
                 ProdRelacionados={this.state.relaciondos} 

@@ -12,6 +12,7 @@ import Match from './components/Match/Match';
 import EditarProductos from './components/MisProductos/EditarProductos';
 import Admin from './components/Admin/Admin';
 import InfoAdmin from './components/Admin/InforAdmin';
+import UsuarioRelacionado from './components/UsuarioRelacionado/UsuarioRelacionado';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
            <Route path="/EditarProducto" component={EditarProductos}/>
            <Route path="/Admin" component={Admin}/>
            <Route path="/InfoAdmin" component={InfoAdmin}/>
+           <Route path="/UsuarioRelacionado" component={UsuarioRelacionado}/>
          </div>
        </div>
     </Router>

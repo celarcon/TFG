@@ -8,14 +8,28 @@ export default class Match extends Component {
         relacionados:[]
     }
 
-    componentDidMount= async()=>{
+    componentDidMount = async()=>{
         const token = localStorage.usertoken;
         const decoded = jwt_decode(token);
 
         var rel = await Axios.get('http://localhost:4000/relacionados/' + decoded._id);
         this.setState({relacionados: rel.data});
     }
+    contactar = async(e)=>{
+        
+        var rel = await Axios.get('http://localhost:4000/relacionados/relacionado/' + e);
 
+        var correo1 =await Axios.get('http://localhost:4000/users/correo/' + rel.data.idUsuario1)
+        var correo2 =await Axios.get('http://localhost:4000/users/correo/' + rel.data.idUsuario2)
+        console.log(correo1.data+correo2.data);
+
+        await Axios.post('http://localhost:4000/users/enviarEmail',{
+            email:correo1.data
+        });
+        await Axios.post('http://localhost:4000/users/enviarEmail',{
+            email:correo2.data
+        });
+    }
     eliminaProd = async(e) => {
         await Axios.delete('http://localhost:4000/relacionados/' + e);
         console.log(e)
@@ -31,7 +45,9 @@ export default class Match extends Component {
             <div>
                 <h2>Tus productos relacionados</h2>
                 {this.state.relacionados.map((rel,i)=>
-                    <ProductosMatch eliminaProd={this.eliminaProd} prod={rel} key={i} />
+                    <ProductosMatch 
+                    contactar={this.contactar}
+                    eliminaProd={this.eliminaProd} prod={rel} key={i} />
                 )}
             </div>
         )

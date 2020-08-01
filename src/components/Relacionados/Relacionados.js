@@ -23,30 +23,25 @@ class Relacionados extends Component {
         this.setState({text: text})
         }
      }
+
     render() {
         return (
             <div >
                 {this.props.ProdSelecionado ?
                     <div> 
-                        <div style={{width:'80%', height:'20vh',marginLeft:'20%'}}>
+                        <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
                             <div>
                                 Producto seleccionado
                             </div>
-                            <table>
-                                <tr>
-                                    <td>
+                                <div>
                                     <img src={'http://localhost:4000/products/get-image/' + this.props.ProdSelecionado.image} alt={this.props.ProdSelecionado.nombre} width="100"></img>
-                                    </td>
-                                    <td style={{paddingLeft:'10px'}}>
-                                        <p>nombre:{this.props.ProdSelecionado.nombre}</p>
-                                        <p>descripcion:{this.props.ProdSelecionado.descripcion}</p>
-                                    </td>
-                                </tr>
-                            </table>
+                                    <p>nombre:{this.props.ProdSelecionado.nombre}</p>
+                                    <p>descripcion:{this.props.ProdSelecionado.descripcion}</p>
+                                </div>
                             <div >
                                 Productos relacionados:
                             </div>
-                            <input class="form-control"  value={this.state.text} onChange={(text) => this.filter(text)}/>
+                            <input className="form-control"  value={this.state.text} onChange={(text) => this.filter(text)}/>
                         </div>
                         <div style={{
                             height: '70vh',
@@ -57,18 +52,18 @@ class Relacionados extends Component {
                             bottom: '0',
                             textAlign:'center'
                             }}>
-                                {this.state.busqueda && 
+                                {this.state.text.length>0 ?
                                 this.state.busqueda.map((rel, i)=>
-                                <ProdRelacionado
+                                <ProdRelacionado key={i}
                                     rel={rel}
                                     i={i}
                                     anadirInteresado={this.props.anadirInteresado}
                                     elimiarInteresado={this.props.elimiarInteresado}
                                     ProdSelecionado={this.props.ProdSelecionado}
-                                />)}
-                        {this.props.ProdRelacionados ?
+                                />):
+                        this.props.ProdRelacionados ?
                             this.props.ProdRelacionados.map((rel, i) =>
-                                <ProdRelacionado
+                                <ProdRelacionado key={i}
                                     rel={rel}
                                     i={i}
                                     anadirInteresado={this.props.anadirInteresado}
