@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import jwt_decode from 'jwt-decode';
+import { Comment, Rate, Tooltip } from 'antd';
+import moment from 'moment';
 
 class Profile extends Component {
   constructor() {
@@ -48,8 +50,28 @@ class Profile extends Component {
               <td>Email</td>
               <td>{this.state.email}</td>
             </tr>
+            <tr>
+              <td>valoración</td>
+              <td><Rate disabled defaultValue={2} /></td>
+            </tr>
           </tbody>
         </table>
+        <h2>Comentarios en tu perfil</h2>
+        <Comment
+            author= "Han Solo"
+            content={
+                <p>
+                  We supply a series of design principles, practical patterns and high quality design
+                  resources (Sketch and Axure), to help people create their product prototypes beautifully
+                  and efficiently.
+                </p>
+              }
+              datetime={
+                <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
+                  <span>{moment().fromNow()}</span>
+                </Tooltip>
+              }
+            />
       </div>
     )
   }

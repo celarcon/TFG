@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { Comment, Form, Button, Input, Rate, Tooltip } from 'antd';
 import moment from 'moment';
+import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 
 const { TextArea } = Input;
   
-  const Editor = ({ onChange, onSubmit, submitting, value }) => (
+  const Editor = ({ onChange, onSubmit, submitting, value,setValoracion, valoracion }) => (
     <>
       <Form.Item>
         <TextArea rows={4} onChange={onChange} value={value} />
@@ -13,8 +15,9 @@ const { TextArea } = Input;
         <Button htmlType="submit" loading={submitting} onClick={onSubmit} type="primary">
           Add Comment
         </Button>
-        <Rate allowHalf defaultValue={2.5} />
+        <span style={{float: 'right', marginRight:'10px'}}>Valoracion del usuarios <Rate  allowHalf onChange={setValoracion} value={valoracion} /></span>
       </Form.Item>
+      
     </>
   );
 
@@ -23,9 +26,10 @@ export default class UsuarioRelacionado extends Component {
         comments: [],
         submitting: false,
         value: '',
+        valoracion: 2.5
       };
     
-      handleSubmit = () => {
+      handleSubmit = async() => {
         if (!this.state.value) {
           return;
         }
@@ -33,7 +37,14 @@ export default class UsuarioRelacionado extends Component {
         this.setState({
           submitting: true,
         });
-    
+        var token = localStorage.usertoken;
+        var decoded = jwt_decode(token);
+        await axios.post('http://localhost:4000/comentarios', { 
+            idPropietario: this.props.location.state.id,
+            nombre: decoded.first_name, 
+            comentario: this.state.value,
+            valoracion: this.state.valoracion
+        });
         setTimeout(() => {
           this.setState({
             submitting: false,
@@ -56,9 +67,18 @@ export default class UsuarioRelacionado extends Component {
         });
         console.log(e.target.value);
       };
-    
+      onClick = e =>{
+        console.log(e.target.value);
+      };
+      setValoracion = e =>{
+        console.log(e);
+        this.setState({
+            valoracion: e,
+          });
+        
+      }
     render() {
-        const { submitting, value } = this.state;
+        const { submitting, value, valoracion } = this.state;
         return (
             <div>
                 Usuario de un producto y comentarios
@@ -66,7 +86,6 @@ export default class UsuarioRelacionado extends Component {
                 valoracion del usuario 
                 <Rate disabled defaultValue={2} />
             <Comment
-            style={{overflow:'hidden',overflowY: 'scroll'}}
             author= "Han Solo"
             content={
                 <p>
@@ -87,8 +106,10 @@ export default class UsuarioRelacionado extends Component {
                 <Editor
                 onChange={this.handleChange}
                 onSubmit={this.handleSubmit}
+                setValoracion={this.setValoracion}
                 submitting={submitting}
                 value={value}
+                valoracion={valoracion}
             />}
             />
             </div>
