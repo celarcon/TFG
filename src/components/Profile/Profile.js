@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import jwt_decode from 'jwt-decode';
 import { Comment, Rate, Tooltip } from 'antd';
 import moment from 'moment';
+import axios from 'axios';
 
 class Profile extends Component {
   constructor() {
@@ -11,11 +12,13 @@ class Profile extends Component {
       first_name: '',
       last_name: '',
       email: '',
+      comments:[],
+      valoracionMedia: 0,
       errors: {}
     }
   }
 
-  componentDidMount = () => {
+  componentDidMount = async() => {
     var token = localStorage.usertoken;
     var decoded = jwt_decode(token);
     this.setState({
@@ -24,6 +27,11 @@ class Profile extends Component {
       last_name: decoded.last_name,
       email: decoded.email
     })
+    var vMedia = await axios.get('http://localhost:4000/comentarios/valoracion/'+decoded._id);
+    var comen =  await axios.get('http://localhost:4000/comentarios/'+decoded._id);
+    this.setState({valoracionMedia:vMedia.data});
+    console.log(vMedia.data)
+    this.setState({comments: comen.data})
   }
 
   render() {
@@ -52,26 +60,27 @@ class Profile extends Component {
             </tr>
             <tr>
               <td>valoración</td>
-              <td><Rate disabled defaultValue={2} /></td>
+              <td><Rate disabled allowHalf value={this.state.valoracionMedia} /></td>
             </tr>
           </tbody>
         </table>
         <h2>Comentarios en tu perfil</h2>
-        <Comment
-            author= "Han Solo"
-            content={
-                <p>
-                  We supply a series of design principles, practical patterns and high quality design
-                  resources (Sketch and Axure), to help people create their product prototypes beautifully
-                  and efficiently.
-                </p>
-              }
-              datetime={
-                <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
-                  <span>{moment().fromNow()}</span>
-                </Tooltip>
-              }
-            />
+        {this.state.comments.map(comen =>
+                <Comment
+                style={{marginLeft:'20px'}}
+                author= {comen.nombre}
+                content={
+                    <p>
+                    {comen.comentario}
+                    </p>
+                }
+                datetime={
+                    <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
+                    <span>{comen.updatedAt}</span>
+                    </Tooltip>
+                }
+                />
+            )}
       </div>
     )
   }

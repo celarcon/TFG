@@ -12,10 +12,10 @@ const { TextArea } = Input;
         <TextArea rows={4} onChange={onChange} value={value} />
       </Form.Item>
       <Form.Item>
-        <Button htmlType="submit" loading={submitting} onClick={onSubmit} type="primary">
+        <Button Type="submit" loading={submitting} onClick={onSubmit} type="primary">
           Add Comment
         </Button>
-        <span style={{float: 'right', marginRight:'10px'}}>Valoracion del usuarios <Rate  allowHalf onChange={setValoracion} value={valoracion} /></span>
+        <span style={{float: 'right', marginRight:'10px'}}>Añade una valoracion para este usuarios <Rate  allowHalf onChange={setValoracion} value={valoracion} /></span>
       </Form.Item>
       
     </>
@@ -26,9 +26,16 @@ export default class UsuarioRelacionado extends Component {
         comments: [],
         submitting: false,
         value: '',
-        valoracion: 2.5
+        valoracion: 2.5,
+        valoracionMedia: 0
       };
-    
+      componentDidMount= async()=>{
+          var vMedia = await axios.get('http://localhost:4000/comentarios/valoracion/'+this.props.location.state.id);
+          var comen =  await axios.get('http://localhost:4000/comentarios/'+this.props.location.state.id);
+          this.setState({valoracionMedia:vMedia.data});
+          this.setState({comments: comen.data})
+          console.log(comen)
+      }
       handleSubmit = async() => {
         if (!this.state.value) {
           return;
@@ -46,17 +53,10 @@ export default class UsuarioRelacionado extends Component {
             valoracion: this.state.valoracion
         });
         setTimeout(() => {
+            this.componentDidMount();
           this.setState({
             submitting: false,
             value: '',
-            comments: [
-              {
-                author: 'Han Solo',
-                content: <p>{this.state.value}</p>,
-                datetime: moment().fromNow(),
-              },
-              this.state.comments,
-            ],
           });
         }, 1000);
       };
@@ -84,22 +84,23 @@ export default class UsuarioRelacionado extends Component {
                 Usuario de un producto y comentarios
                 {this.props.location.state.id}
                 valoracion del usuario 
-                <Rate disabled defaultValue={2} />
-            <Comment
-            author= "Han Solo"
-            content={
-                <p>
-                  We supply a series of design principles, practical patterns and high quality design
-                  resources (Sketch and Axure), to help people create their product prototypes beautifully
-                  and efficiently.
-                </p>
-              }
-              datetime={
-                <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
-                  <span>{moment().fromNow()}</span>
-                </Tooltip>
-              }
-            />
+                <Rate disabled allowHalf  value={this.state.valoracionMedia} />
+            {this.state.comments.map(comen =>
+                <Comment
+                style={{marginLeft:'20px'}}
+                author= {comen.nombre}
+                content={
+                    <p>
+                    {comen.comentario}
+                    </p>
+                }
+                datetime={
+                    <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
+                    <span>{comen.updatedAt}</span>
+                    </Tooltip>
+                }
+                />
+            )}
             <Comment 
                 style={{position: 'absolute',bottom: '0',width:'100%'}}
                 content={

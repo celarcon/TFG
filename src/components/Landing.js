@@ -67,7 +67,7 @@ class Landing extends Component {
         {localStorage.usertoken ?
           <Router>
             <Layout  style={{backgroundColor:'white'}}>
-            <Switch >
+            <Switch>
               <Route path="/home/AñadirProducto" component={AñadirProducto} />
               <Route path="/Usuario" component={Usuario} />
               <Route path="/UsuarioRelacionado" component={UsuarioRelacionado}/>
