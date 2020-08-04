@@ -19,15 +19,15 @@ export default class Match extends Component {
         
         var rel = await Axios.get('http://localhost:4000/relacionados/relacionado/' + e);
 
-        var correo1 =await Axios.get('http://localhost:4000/users/correo/' + rel.data.idUsuario1)
-        var correo2 =await Axios.get('http://localhost:4000/users/correo/' + rel.data.idUsuario2)
-        console.log(correo1.data+correo2.data);
+        var correo1 =await Axios.get('http://localhost:4000/users/' + rel.data.idUsuario1)
+        var correo2 =await Axios.get('http://localhost:4000/users/' + rel.data.idUsuario2)
+        console.log(correo1.data.email+correo2.data.email);
 
         await Axios.post('http://localhost:4000/users/enviarEmail',{
-            email:correo1.data
+            email:correo1.data.email
         });
         await Axios.post('http://localhost:4000/users/enviarEmail',{
-            email:correo2.data
+            email:correo2.data.email
         });
     }
     eliminaProd = async(e) => {
