@@ -4,6 +4,7 @@ import { Comment, Rate, Tooltip } from 'antd';
 import moment from 'moment';
 import axios from 'axios';
 
+
 class Profile extends Component {
   constructor() {
     super()
@@ -36,7 +37,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className="container" >
+      <div className="container profile">
         <div className="col-sm-8 mx-auto">
           <h1 className="text-center">Perfil</h1>
         </div>

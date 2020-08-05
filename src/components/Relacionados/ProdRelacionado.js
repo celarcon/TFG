@@ -43,12 +43,14 @@ class ProdRelacionado extends Component {
         var cond = await Axios.get('http://localhost:4000/interesados/' + this.state.idProdSelect + "&" + this.props.rel._id);
         this.setState({ interesado: cond.data });
         openNotificationDelete();
+        this.componentDidMount();
     }
     anadirInteresado = async () => {
         this.props.anadirInteresado(this.props.rel._id);
         var cond = await Axios.get('http://localhost:4000/interesados/' + this.state.idProdSelect + "&" + this.props.rel._id);
         this.setState({ interesado: cond.data });
         openNotificationSuccess();
+        this.componentDidMount();
     }
     cantidadInteresados= async()=>{
         var inter = await Axios.get('http://localhost:4000/interesados/numeroInteresados/'+this.props.rel._id);

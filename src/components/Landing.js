@@ -7,6 +7,7 @@ import Sidebar from './Sidebar/Sidebar';
 import Usuario from './Profile/Profile';
 import AñadirProducto from './AñadirProducto/AñadirProducto';
 import UsuarioRelacionado from './UsuarioRelacionado/UsuarioRelacionado';
+import '../App.css'; 
 
 class Landing extends Component {
 
@@ -68,8 +69,8 @@ class Landing extends Component {
           <Router>
             <Layout  style={{backgroundColor:'white'}}>
             <Switch>
-              <Route path="/home/AñadirProducto" component={AñadirProducto} />
-              <Route path="/Usuario" component={Usuario} />
+              <Route path="/home/AñadirProducto" component={AñadirProducto}/>
+              <Route path="/Usuario" component={Usuario}/>
               <Route path="/UsuarioRelacionado" component={UsuarioRelacionado}/>
               <Relacionados 
                 ProdSelecionado={this.state.producto} 
