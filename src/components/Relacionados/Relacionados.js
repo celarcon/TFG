@@ -29,7 +29,7 @@ class Relacionados extends Component {
             <div >
                 {this.props.ProdSelecionado ?
                     <div>
-                        <div className="row" 
+                        <div className="row " 
                         style={{paddingLeft:'20%',
                             height: '25vh',
                             width: '100%',

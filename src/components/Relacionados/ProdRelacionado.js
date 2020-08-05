@@ -63,7 +63,7 @@ class ProdRelacionado extends Component {
                  backgroundColor:'white',
                  marginBottom:'20px'}}>
                 <div className="col-sm-12 col-md-12 col-lg-4">
-                    <img src={'http://localhost:4000/products/get-image/' + this.props.rel.image} alt={this.props.rel.nombre} height="100"></img>
+                    <img src={'http://localhost:4000/products/get-image/' + this.props.rel.image} alt={this.props.rel.nombre} width="100" height="100"></img>
                 </div>
                 <div className="col-sm-12 col-md-12 col-lg-4">
                     <Link to={{pathname:"/UsuarioRelacionado", state:{id:this.props.rel.idPropietario}}}>
