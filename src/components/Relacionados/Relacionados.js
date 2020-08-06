@@ -54,15 +54,7 @@ class Relacionados extends Component {
                         <div style={{position: 'absolute',width:'100%',paddingLeft:'20%',height: '25px',paddingRight:'20%'}}>
                             Buscador:<input className="form-control" value={this.state.text} onChange={(text) => this.filter(text)} />
                         </div>
-                        <div style={{
-                            height: '58vh',
-                            width: '100%',
-                            overflow: 'hidden',
-                            overflowY: 'scroll',
-                            position: 'absolute',
-                            bottom: '0',
-                            textAlign: 'center'
-                        }}>
+                        <div className="scrollRelacionados">
                             {this.state.text.length > 0 ?
                                 this.state.busqueda.map((rel, i) =>
                                     <ProdRelacionado key={i}

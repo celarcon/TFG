@@ -13,6 +13,7 @@ import EditarProductos from './components/MisProductos/EditarProductos';
 import Admin from './components/Admin/Admin';
 import InfoAdmin from './components/Admin/InforAdmin';
 import UsuarioRelacionado from './components/UsuarioRelacionado/UsuarioRelacionado';
+import './App.css'; 
 
 function App() {
   return (

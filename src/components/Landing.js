@@ -7,7 +7,6 @@ import Sidebar from './Sidebar/Sidebar';
 import Usuario from './Profile/Profile';
 import AñadirProducto from './AñadirProducto/AñadirProducto';
 import UsuarioRelacionado from './UsuarioRelacionado/UsuarioRelacionado';
-import '../App.css'; 
 
 class Landing extends Component {
 

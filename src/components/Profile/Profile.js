@@ -37,9 +37,9 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className="container profile">
-        <div className="col-sm-8 mx-auto">
-          <h1 className="text-center">Perfil</h1>
+      <div className="container paddingMobile">
+        <div className="col-sm-8 justify-content-center align-self-center">
+          <h1 className="text-center perfil">Perfil</h1>
         </div>
         <table className="table col-md-6 mx-auto">
           <tbody>
@@ -66,6 +66,7 @@ class Profile extends Component {
           </tbody>
         </table>
         <h2>Comentarios en tu perfil</h2>
+        <div className="scrollPerfil">
         {this.state.comments.map(comen =>
                 <Comment
                 style={{marginLeft:'20px'}}
@@ -82,6 +83,7 @@ class Profile extends Component {
                 }
                 />
             )}
+      </div>
       </div>
     )
   }

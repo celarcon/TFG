@@ -86,7 +86,7 @@ export default class AñadirProducto extends Component {
         const {precioMin} = this.state;
         const {precioMax} = this.state;
         return (
-            <div className="container">
+            <div className="container paddingMobile">
                 <div className="row text-center justify-content-center align-self-center">
                     <form  onSubmit={this.handleSubmit}>
                         <h1 >Producto</h1>

@@ -2,9 +2,29 @@
 .App-link {
   color: #61dafb;
 }
+body{
+  font-family: Helvetica;
+}
 
 @media (max-width: 700px){
-  .profile{
+  .paddingMobile{
     padding-left:20%;
   }
+}
+.scrollPerfil{
+  height: 50vh;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  position: absolute;
+  bottom: 0;
+}
+.scrollRelacionados{
+  height: 58vh;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
 }
