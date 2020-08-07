@@ -96,17 +96,18 @@ export default class UsuarioRelacionado extends Component {
     return (
       <div  style={{width: '100%'}}>
         <div style={{margin:'auto', width: '50%'}}>
-          Usuario
-          <div class="w-100"></div>
-          {this.state.nombre}
-          <div class="w-100"></div>
-          valoracion del usuario
-          <div class="w-100"></div>      
+          <h2>Usuario</h2>
+          <div className="w-100"></div>
+          <h3>{this.state.nombre}</h3>
+          <div className="w-100 "></div>
+            <span className="txtNegrita">valoracion del usuario</span>
+          <div className="w-100"></div>      
           <p><Rate disabled allowHalf value={this.state.valoracionMedia} /></p>
-          <h3>Lo que opina la gente</h3>      
+          <h2>Comentarios</h2>      
         </div>
+        <div className="scrollComentarios">
         {this.state.comments.map(comen =>
-          <div>
+          <div className="paddingDefaul ">
             <Comment
               style={{ marginLeft: '20px' }}
               author={comen.nombre}
@@ -122,12 +123,14 @@ export default class UsuarioRelacionado extends Component {
               }
             />
             {comen.idComUsu === this.state.miId &&
-              <button className="eliminaComentario" onClick={() => this.elimaComentario(comen._id)}>Eliminar Comentario</button>
+              <button className="eliminaComentario col-md-5 offset-md-7" onClick={() => this.elimaComentario(comen._id)}>Eliminar Comentario</button>
             }
           </div>
         )}
+        </div>
         <Comment
-          style={{ position: 'absolute', bottom: '0', width: '100%' }}
+          className="paddingDefaul"
+          style={{ position: 'absolute', bottom: '0', width: '100%',paddingRight:'20px' }}
           content={
             <Editor
               onChange={this.handleChange}

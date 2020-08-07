@@ -91,11 +91,11 @@ export default class AñadirProducto extends Component {
                 <div className="row text-center justify-content-center align-self-center">
                     <form onSubmit={this.handleSubmit}>
                         <h1>Añadir Producto</h1>
-                        <label >Nombre producto</label>
+                        <label className="txtNegrita">Nombre producto</label>
                         <input type="text" name="nombre" onChange={this.handleInputChange} className="form-control" placeholder="Nombre producto" required autoFocus="" />
-                        <label >Descripcion</label>
+                        <label className="txtNegrita">Descripción</label>
                         <textarea name="descripcion" onChange={this.handleInputChange} className="form-control mb-3" placeholder="Descripcion producto" required />
-                        <label >Rango precio</label><br />
+                        <label className="txtNegrita" >Rango precio</label><br />
                         <InputNumber
                             min={0}
                             style={{ marginRight: '50px' }}
@@ -110,7 +110,7 @@ export default class AñadirProducto extends Component {
                             value={precioMax}
                             onChange={this.inputNumberMax}
                         />
-
+                        <br/><br/>
                         <Slider
                             range
                             step={1}

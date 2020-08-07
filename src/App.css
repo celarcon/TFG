@@ -18,7 +18,7 @@ h3{
     padding-left:30%;
     padding-right:10%;
   }}
-  @media (min-width: 700px){
+@media (min-width: 700px){
   .buscador{
     width:100%;
     padding-left:20%;
@@ -31,13 +31,18 @@ h3{
 }
 @media (max-width: 700px){
   .paddingRelacionados{
-    padding-left:15%;
+    padding-left:20%;
   }
 }
-
+@media (max-width: 700px){
 .paddingDefaul{
-  padding-left:10%;
-}
+  padding-left:20%;
+}}
+@media (min-width: 700px){
+  .paddingDefaul{
+    padding-left:15%;
+  }}
+  
 @media (max-width: 700px){
 .scrollRelacionados{
   height: 50vh;
@@ -61,6 +66,22 @@ h3{
 .verPerfil {
   color: #0069CC;
 }
+@media (min-width: 700px){
+.scrollComentarios{
+  height: 55vh;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  position: absolute;
+}}
+@media (max-width: 700px){
+  .scrollComentarios{
+    height: 33vh;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    position: absolute;
+  }}
 .btnAccesoRegistro{
   background-color: #0069CC;
   color:white;
@@ -150,8 +171,12 @@ input[type="file"]{
 }
 .eliminaComentario{
   border: none;
+  outline: none;
   background: none;
   color: #DA291C;
+}
+.eliminaComentario:focus{
+  outline: none;
 }
 .txtNegrita{
   font-weight: 600;
