@@ -53,8 +53,8 @@ export default class ProductosMatch extends Component {
                 </div>
             </div>
             <div className="row justify-content-center" style={{ marginTop: '5px',width:'99%' }} >
-                <button onClick={() => this.props.contactar(this.state.id)}>Contactar</button>
-                <button onClick={() => this.props.eliminaProd(this.state.id)}>Elminar</button>
+                <button className="btnContactar" onClick={() => this.props.contactar(this.state.id)}>Contactar</button>
+                <button className="btnEliminar" onClick={() => this.props.eliminaProd(this.state.id)}>Elminar</button>
             </div>
             <Divider style={{borderColor: '#002140'}}/>
             </div>

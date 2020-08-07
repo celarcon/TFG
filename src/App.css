@@ -1,7 +1,5 @@
 
-.App-link {
-  color: #61dafb;
-}
+
 body{
   font-family: Helvetica;
 }
@@ -27,4 +25,95 @@ body{
   position: absolute;
   bottom: 0;
   text-align: center;
+}
+
+.verPerfil {
+  color: #0069CC;
+}
+.btnAccesoRegistro{
+  background-color: #0069CC;
+  color:white;
+}
+.btnAccesoRegistro:hover{
+  background-color: #00284D;
+  color :white;
+}
+.meInteresa{
+  background-color: #0069CC;
+  color: white;
+  border: none;
+  width: 150px;
+  height: 40px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.meInteresa:hover{
+  background-color: #00488C;
+}
+.yaNoInteresa{
+  background-color: #DA291C;
+  color: white;
+  border: none;
+  width: 150px;
+  height: 40px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.yaNoInteresa:hover{
+  background-color: #be3a34;
+}
+.btnEliminar{
+  background-color: #DA291C;
+  color: white;
+  border: none;
+  width: 150px;
+  height: 40px;
+  margin-right: 20px;
+}
+.btnEliminar:hover{
+  background-color: #be3a34;
+  color: white;
+}
+.btnEditar{
+  background-color: #0069CC;
+  color: white;
+  border: none;
+  width: 150px;
+  height: 40px;
+}
+
+.btnContactar{
+  background-color: #0069CC;
+  color: white;
+  border: none;
+  width: 150px;
+  height: 40px;
+  margin-right: 20px;
+}
+.btnContactar:hover{
+  background-color: #00284D;
+  color :white;
+}
+
+.btnPrimario{
+  background-color: #0069CC;
+  color:white;
+  margin-top: 10px;
+}
+.btnPrimario:hover{
+  background-color: #00284D;
+  color :white;
+}
+
+input[type="file"]{
+  display: none;
+}
+
+.btnFile{
+  color: white;
+  background-color: #0069CC;
+}
+.btnFile:hover{
+  color: white;
+  background-color: #00284D;
 }

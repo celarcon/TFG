@@ -69,19 +69,20 @@ class ProdRelacionado extends Component {
                 </div>
                 <div className="col-sm-12 col-md-12 col-lg-4">
                     <Link to={{pathname:"/UsuarioRelacionado", state:{id:this.props.rel.idPropietario}}}>
-                        ver perfil
+                        <span className="verPerfil">ver perfil</span>
                     </Link>
                     <p>Nombre:{this.props.rel.nombre}</p>
                     <p>Definición:{this.props.rel.nombre}</p>
+                    <p>Fecha de subida:{this.props.rel.createdAt}</p>
                    <p>Numero de interesados:{this.state.numerInteresados}</p> 
                 </div>
                 {this.state.interesado ?
                     <div className="col-sm-12 col-md-12 col-lg-4">
-                        <button key={this.props.i} onClick={this.elimiarInteresado} >Ya no me interesa</button>
+                        <button className="yaNoInteresa" key={this.props.i} onClick={this.elimiarInteresado} >Ya no me interesa</button>
                     </div>
                     :
                     <div className="col-sm-12 col-md-12 col-lg-4">
-                        <button key={this.props.rel._id} onClick={this.anadirInteresado}>Me interesa</button>
+                        <button className="meInteresa" key={this.props.rel._id} onClick={this.anadirInteresado}>Me interesa</button>
                     </div>}
             </div>
         )

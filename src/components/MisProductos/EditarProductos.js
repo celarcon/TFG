@@ -110,8 +110,10 @@ export class EditarProductos extends Component {
                         <input type="file" name="file0" onChange={this.fileChange}></input>
                         <br/><br/>
                         
-                        <button className="btn btn-primary btn-block" type="submit">Editar producto</button>
-                        <Link to="/MisProductos">Volver</Link>
+                        <button className="btn btnPrimario btn-block" type="submit">Editar producto</button>
+                        <Link to="/MisProductos">
+                        <button className="btn btnPrimario btn-block" >Volver</button>
+                        </Link>
                     </form>
             </div>
             </div>

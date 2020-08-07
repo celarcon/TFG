@@ -52,9 +52,11 @@ class MisProductos extends Component {
                                         <p>Precio minimo: {productos.precioMin} - Precio Máximo {productos.precioMax}</p>
                                         <p>Fecha de subida: {productos.createdAt}</p>
                                     </div>
-                                    <div className="col-md-4 offset-md-8">
-                                        <button type="submit" onClick={() => this.eliminaProd(productos._id)}>Elminar</button>
-                                        <Link to={{ pathname: "/EditarProducto", state: { id: productos } }}>editar</Link>
+                                    <div className="col-md-5 offset-md-7">
+                                        <button className="btnEliminar" type="submit" onClick={() => this.eliminaProd(productos._id)}>Elminar</button>
+                                        <Link to={{ pathname: "/EditarProducto", state: { id: productos } }}>
+                                            <button className="btnEditar">editar</button>
+                                        </Link>
                                     </div>
                                 </div>
                             </li>
