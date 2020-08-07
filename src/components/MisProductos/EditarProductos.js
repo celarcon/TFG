@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 //antDesing
 import { Slider, InputNumber } from 'antd';//Para el slider
+import {UploadOutlined} from '@ant-design/icons';
 import 'antd/dist/antd.css';
 
 export class EditarProductos extends Component {
@@ -107,9 +108,12 @@ export class EditarProductos extends Component {
                             onChange={this.onChange}
                             required
                         />
-                        <input type="file" name="file0" onChange={this.fileChange}></input>
+                        <input type="file" id="file" name="file0" onChange={this.fileChange}></input>
+                        <label for="file" className="btn btnFile">
+                        <UploadOutlined style={{fontSize:'30px'}} />
+                        Sube una imagen
+                        </label>
                         <br/><br/>
-                        
                         <button className="btn btnPrimario btn-block" type="submit">Editar producto</button>
                         <Link to="/MisProductos">
                         <button className="btn btnPrimario btn-block" >Volver</button>

@@ -51,7 +51,7 @@ class Landing extends Component {
         </li>
         <li className="nav-item">
           <Link to="/MisProductos" className="nav-link">
-            Mis Producto
+            Mis Productos
           </Link>
         </li>
         <li className="nav-item">

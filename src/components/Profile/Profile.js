@@ -65,7 +65,7 @@ class Profile extends Component {
             </tr>
           </tbody>
         </table>
-        <h2>Comentarios en tu perfil</h2>
+        <h2>Comentarios:</h2>
         <div className="scrollPerfil">
         {this.state.comments.map(comen =>
                 <Comment

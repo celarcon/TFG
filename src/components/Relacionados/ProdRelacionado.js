@@ -64,17 +64,23 @@ class ProdRelacionado extends Component {
                  alignItems:'center',
                  backgroundColor:'white',
                  marginBottom:'20px'}}>
-                <div className="col-sm-12 col-md-12 col-lg-4">
-                    <img src={'http://localhost:4000/products/get-image/' + this.props.rel.image} alt={this.props.rel.nombre} width="100" height="100"></img>
+                <div className="col-sm-12 col-md-12 col-lg-4" style={{paddingBottom:'10px'}}>
+                    <p>
+                        <img src={'http://localhost:4000/products/get-image/' + this.props.rel.image} alt={this.props.rel.nombre} width="100" height="100"></img>
+                    </p>
+                    <Link to={{pathname:"/UsuarioRelacionado", state:{id:this.props.rel.idPropietario}}}>
+                        <span className="verPerfil">ver perfil usuario</span>
+                    </Link>
                 </div>
                 <div className="col-sm-12 col-md-12 col-lg-4">
-                    <Link to={{pathname:"/UsuarioRelacionado", state:{id:this.props.rel.idPropietario}}}>
-                        <span className="verPerfil">ver perfil</span>
-                    </Link>
-                    <p>Nombre:{this.props.rel.nombre}</p>
-                    <p>Definición:{this.props.rel.nombre}</p>
-                    <p>Fecha de subida:{this.props.rel.createdAt}</p>
-                   <p>Numero de interesados:{this.state.numerInteresados}</p> 
+                    <p><span className="txtNegrita">Nombre: </span> <br/>{this.props.rel.nombre}</p>
+                    <p><span className="txtNegrita">Descripcion:</span> <br/> 
+                   {this.props.rel.descripcion}</p>
+                    <p><span className="txtNegrita">Fecha de subida: </span><br/>{this.props.rel.createdAt}</p>
+                    <p> 
+                        <span className="txtNegrita">Numero de interesados: </span>
+                        <span className="numInteresados">{this.state.numerInteresados}</span>
+                    </p> 
                 </div>
                 {this.state.interesado ?
                     <div className="col-sm-12 col-md-12 col-lg-4">

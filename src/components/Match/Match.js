@@ -3,6 +3,18 @@ import Axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import ProductosMatch from './ProductosMatch';
 
+import { notification } from 'antd';
+import { SmileOutlined } from '@ant-design/icons';
+
+const openNotification = () => {
+  notification.open({
+    message: 'Revisa tu correo',
+    description:
+      'Genial, has contactado con un usuarion mira en tu correo te habrá llegado un correo con información del contacto',
+    icon: <SmileOutlined style={{ color: '#0069CC', width: 300 }} />,
+  });
+};
+
 export default class Match extends Component {
     state={
         relacionados:[]
@@ -16,7 +28,8 @@ export default class Match extends Component {
         this.setState({relacionados: rel.data});
     }
     contactar = async(e)=>{
-        
+        openNotification();
+
         var rel = await Axios.get('http://localhost:4000/relacionados/relacionado/' + e);
         var prod1 = await Axios.get('http://localhost:4000/products/'+  rel.data.idProducto1);
         var prod2 = await Axios.get('http://localhost:4000/products/'+  rel.data.idProducto2);
@@ -56,7 +69,7 @@ export default class Match extends Component {
     render() {
         return (
             <div>
-                <h2>Tus productos relacionados</h2>
+                <h1>Tus productos relacionados</h1>
                 {this.state.relacionados.map((rel,i)=>
                     <ProductosMatch 
                     contactar={this.contactar}

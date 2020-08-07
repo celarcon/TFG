@@ -90,7 +90,7 @@ export default class AñadirProducto extends Component {
             <div className="container paddingMobile">
                 <div className="row text-center justify-content-center align-self-center">
                     <form onSubmit={this.handleSubmit}>
-                        <h1 >Producto</h1>
+                        <h1>Añadir Producto</h1>
                         <label >Nombre producto</label>
                         <input type="text" name="nombre" onChange={this.handleInputChange} className="form-control" placeholder="Nombre producto" required autoFocus="" />
                         <label >Descripcion</label>

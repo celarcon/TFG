@@ -14,7 +14,7 @@ const Editor = ({ onChange, onSubmit, submitting, value, setValoracion, valoraci
     <Form.Item>
        <span style={{ float: 'right', marginRight: '10px' }}>Añade una valoracion para este usuarios <Rate allowHalf onChange={setValoracion} value={valoracion} /></span>
       <Button Type="submit" loading={submitting} onClick={onSubmit} type="primary">
-        Add Comment
+        Añadir comentario
         </Button>
     </Form.Item>
 
@@ -122,7 +122,7 @@ export default class UsuarioRelacionado extends Component {
               }
             />
             {comen.idComUsu === this.state.miId &&
-              <button onClick={() => this.elimaComentario(comen._id)}>Eliminar Comentario</button>
+              <button className="eliminaComentario" onClick={() => this.elimaComentario(comen._id)}>Eliminar Comentario</button>
             }
           </div>
         )}

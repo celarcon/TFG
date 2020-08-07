@@ -47,10 +47,10 @@ class MisProductos extends Component {
                                         <img src={'http://localhost:4000/products/get-image/' + productos.image} alt={productos.nombre} width="100"></img>
                                     </div>
                                     <div className="col-sm-12 col-md-10">
-                                        <p>Nombre: {productos.nombre}</p>
-                                        <p>Descripcion: {productos.descripcion}</p>
-                                        <p>Precio minimo: {productos.precioMin} - Precio Máximo {productos.precioMax}</p>
-                                        <p>Fecha de subida: {productos.createdAt}</p>
+                                        <p><span className="txtNegrita">Nombre:</span> {productos.nombre}</p>
+                                        <p><span className="txtNegrita">Descripcion: </span>{productos.descripcion}</p>
+                                        <p><span className="txtNegrita">Precio minimo: </span>{productos.precioMin}€ - Precio Máximo {productos.precioMax}€</p>
+                                        <p><span className="txtNegrita">Fecha de subida: </span>{productos.createdAt}</p>
                                     </div>
                                     <div className="col-md-5 offset-md-7">
                                         <button className="btnEliminar" type="submit" onClick={() => this.eliminaProd(productos._id)}>Elminar</button>
