@@ -10,10 +10,13 @@ const openNotification = () => {
   notification.open({
     message: 'Revisa tu correo',
     description:
-      'Genial, has contactado con un usuarion mira en tu correo te habrá llegado un correo con información del contacto',
+      'Genial!, has contactado con un usuarion mira en tu correo te habrá llegado un correo con información del contacto',
     icon: <SmileOutlined style={{ color: '#0069CC', width: 300 }} />,
   });
 };
+const scrollTop = () =>{
+    window.scrollTo({top: 0, behavior: 'smooth'});
+ };
 
 export default class Match extends Component {
     state={
@@ -75,6 +78,11 @@ export default class Match extends Component {
                     contactar={this.contactar}
                     eliminaProd={this.eliminaProd} prod={rel} key={i} />
                 )}
+                <button className="goTop" onClick={scrollTop}>
+                    <svg width="3.5em" height="3.5em" viewBox="0 0 16 16" class="bi bi-arrow-up-circle-fill" fill="rgb(0,40,77)" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-10.646.354a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 6.207V11a.5.5 0 0 1-1 0V6.207L5.354 8.354z"/>
+                    </svg>
+                </button>
             </div>
         )
     }

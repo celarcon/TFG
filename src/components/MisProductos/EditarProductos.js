@@ -78,11 +78,11 @@ export class EditarProductos extends Component {
                 <div className="row text-center justify-content-center align-self-center">
                     <form  onSubmit={this.handleSubmit}>
                         <h1 >Edita producto</h1>
-                        <label >Nombre producto</label>
+                        <label className="txtNegrita">Nombre producto</label>
                         <input type="text" name="nombre"  onChange={this.handleInputChange} className="form-control" placeholder="Nombre producto" required autoFocus="" />
-                        <label >Descripcion</label>
+                        <label className="txtNegrita">Descripcion</label>
                         <textarea name="descripcion" onChange={this.handleInputChange} className="form-control mb-3" placeholder="Descripcion producto" required />
-                        <label >Rango precio</label><br/>
+                        <label className="txtNegrita">Rango precio</label><br/>
                         <InputNumber
                             min={0}
                             style={{ marginRight: '50px' }}

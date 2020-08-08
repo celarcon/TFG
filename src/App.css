@@ -164,6 +164,7 @@ input[type="file"]{
 .btnFile{
   color: white;
   background-color: #0069CC;
+  margin-top: 10px;
 }
 .btnFile:hover{
   color: white;
@@ -188,4 +189,16 @@ input[type="file"]{
 .prodSeleccionado{
   text-align: center;
   width: 100%;
+}
+
+.goTop{
+  position:fixed;
+  border: none;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 50px;
+ background-color: transparent;
+}
+.goTop:focus{
+  outline: none;
 }

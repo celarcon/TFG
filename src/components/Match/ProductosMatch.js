@@ -31,10 +31,10 @@ export default class ProductosMatch extends Component {
                 <div className="col-sm-4">
                     <Link to={{ pathname: "/UsuarioRelacionado", state: { id: this.state.prod1.idPropietario } }}>
                         ver perfil
-                </Link>
-                    <p>{this.state.prod1.nombre}</p>
+                    </Link>
+                    <p><span className="txtNegrita">Nombre: </span><br/>{this.state.prod1.nombre}</p>
                     <img src={'http://localhost:4000/products/get-image/' + this.state.prod1.image} alt={this.state.prod1.nombre} height="100" width="100"></img>
-                    <p>{this.state.prod1.descripcion}</p>
+                    <p><span className="txtNegrita">Descripción: </span><br/>{this.state.prod1.descripcion}</p>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', paddingRight: '10px' }}>
                     <svg width="50px" height="50px" viewBox="0 0 16 16" class="bi bi-arrow-left-right" fill='#002140' xmlns="http://www.w3.org/2000/svg">
@@ -47,9 +47,9 @@ export default class ProductosMatch extends Component {
                     <Link to={{ pathname: "/UsuarioRelacionado", state: { id: this.state.prod2.idPropietario } }}>
                         ver perfil
                     </Link>
-                    <p>{this.state.prod2.nombre}</p>
+                    <p><span className="txtNegrita">Nombre: </span><br/>{this.state.prod2.nombre}</p>
                     <img src={'http://localhost:4000/products/get-image/' + this.state.prod2.image} alt={this.state.prod2.nombre} height="100" width="100"></img>
-                    <p>{this.state.prod2.descripcion}</p>
+                    <p><span className="txtNegrita">Descripción: </span><br/>{this.state.prod2.descripcion}</p>
                 </div>
             </div>
             <div className="row justify-content-center" style={{ marginTop: '5px',width:'99%' }} >
