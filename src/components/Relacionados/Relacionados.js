@@ -38,7 +38,7 @@ class Relacionados extends Component {
                                     <td> <img src={'http://localhost:4000/products/get-image/' + this.props.ProdSelecionado.image} alt={this.props.ProdSelecionado.nombre} height="100" width="100"></img></td>
                                     <td>
                                         <p><span className="txtNegrita" >Nombre: </span>{this.props.ProdSelecionado.nombre}</p>
-                                        <p><span className="txtNegrita" >Descripción: </span>{this.props.ProdSelecionado.descripcion}</p>
+                                        <p><span className="txtNegrita" >Descripción: </span><br/>{this.props.ProdSelecionado.descripcion}</p>
                                     </td>
                                 </tr>
                             </table>
@@ -69,12 +69,12 @@ class Relacionados extends Component {
                                             ProdSelecionado={this.props.ProdSelecionado}
                                         />
                                     ) :
-                                    <h1 className="paddingDefaul" >No hay relacionados</h1>
+                                    <h1 className="paddingMobile"> No hay relacionados</h1>
                             }
                         </div>
                     </div>
                     :
-                    <h1 className="paddingDefaul">No hay ningun producto seleccionado</h1>
+                    <h1 className="paddingMobile"> No hay ningun producto seleccionado</h1>
                 }
             </div>
 

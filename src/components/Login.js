@@ -41,7 +41,7 @@ class Login extends Component {
             <form noValidate onSubmit={this.onSubmit}>
               <h1 className="h3 mb-3 font-weight-normal">Acceder a TradeApp</h1>
               <div className="form-group">
-                <label htmlFor="email">Email</label>
+                <label className="txtNegrita" htmlFor="email">Email</label>
                 <input
                   type="email"
                   className="form-control"
@@ -52,7 +52,7 @@ class Login extends Component {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="password">Contraseña</label>
+                <label className="txtNegrita" htmlFor="password">Contraseña</label>
                 <input
                   type="password"
                   className="form-control"

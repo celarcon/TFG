@@ -51,7 +51,7 @@ class MisProductos extends Component {
                                     <div className="col-sm-12 col-md-10">
                                         <p><span className="txtNegrita">Nombre:</span> {productos.nombre}</p>
                                         <p><span className="txtNegrita">Descripcion: </span>{productos.descripcion}</p>
-                                        <p><span className="txtNegrita">Precio minimo: </span>{productos.precioMin}€ - Precio Máximo {productos.precioMax}€</p>
+                                        <p><span className="txtNegrita">Precio mínimo: </span>{productos.precioMin}€ - <span className="txtNegrita">Precio máximo: </span> {productos.precioMax}€</p>
                                         <p><span className="txtNegrita">Fecha de subida: </span>{productos.createdAt}</p>
                                     </div>
                                     <div className="col-md-5 offset-md-7">

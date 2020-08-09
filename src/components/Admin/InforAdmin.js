@@ -29,11 +29,13 @@ export default class InforAdmin extends Component {
                 {localStorage.admintoken ?
                 <div className="container">
                     <h1>InforAdmin</h1>
-                    <p>Numero de usuarios: {this.state.usuarios}</p>
-                    <p>Numero de productos: {this.state.productos}</p>
-                    <p>Numero de productos interesados: {this.state.interesados}</p>
-                    <p>Numero de productos relacionados: {this.state.relacionados}</p>
-                    <button onClick={this.logOut.bind(this)}>Cerrar sesion admin</button>
+                    <br/>
+                    <p className="txtNegrita">Numero de usuarios: {this.state.usuarios}</p>
+                    <p className="txtNegrita">Numero de productos: {this.state.productos}</p>
+                    <p className="txtNegrita">Numero de productos interesados: {this.state.interesados}</p>
+                    <p className="txtNegrita">Numero de productos relacionados: {this.state.relacionados}</p>
+                    <br/><br/>
+                    <button className="btnEditar" onClick={this.logOut.bind(this)}>Cerrar sesion admin</button>
                 </div>
                 :
                 this.props.history.push(`/Admin`)}

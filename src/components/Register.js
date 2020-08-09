@@ -37,7 +37,7 @@ class Register extends Component {
             <form noValidate onSubmit={this.onSubmit}>
               <h1 className="h3 mb-3 font-weight-normal">Registro</h1>
               <div className="form-group">
-                <label htmlFor="name">Nombre</label>
+                <label className="txtNegrita" htmlFor="name">Nombre</label>
                 <input
                   type="text"
                   className="form-control"
@@ -49,7 +49,7 @@ class Register extends Component {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="name">Apellidos</label>
+                <label className="txtNegrita" htmlFor="name">Apodo</label>
                 <input
                   type="text"
                   className="form-control"
@@ -61,7 +61,7 @@ class Register extends Component {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="email">Email</label>
+                <label className="txtNegrita" htmlFor="email">Email</label>
                 <input
                   type="email"
                   className="form-control"
@@ -73,7 +73,7 @@ class Register extends Component {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="password">Contraseña</label>
+                <label className="txtNegrita" htmlFor="password">Contraseña</label>
                 <input
                   type="password"
                   className="form-control"

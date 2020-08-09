@@ -62,7 +62,6 @@ class ProdRelacionado extends Component {
                  padding: '10px',
                  display:'flex',
                  alignItems:'center',
-                 backgroundColor:'white',
                  marginBottom:'20px'}}>
                 <div className="col-sm-12 col-md-12 col-lg-4" style={{paddingBottom:'10px'}}>
                     <p>

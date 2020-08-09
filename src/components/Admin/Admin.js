@@ -41,7 +41,7 @@ class Admin extends Component {
             <form noValidate onSubmit={this.onSubmit}>
               <h1 className="h3 mb-3 font-weight-normal">Acceder como administrador</h1>
               <div className="form-group">
-                <label htmlFor="name">nombre</label>
+                <label className="txtNegrita" htmlFor="name">Nombre</label>
                 <input
                   type="text"
                   className="form-control"
@@ -52,7 +52,7 @@ class Admin extends Component {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="password">Contraseña</label>
+                <label className="txtNegrita" htmlFor="password">Contraseña</label>
                 <input
                   type="password"
                   className="form-control"
@@ -64,7 +64,7 @@ class Admin extends Component {
               </div>
               <button
                 type="submit"
-                className="btn btn-lg btn-primary btn-block">
+                className="btn btn-lg btnAccesoRegistro btn-block">
                 Acceder
               </button>
             </form>

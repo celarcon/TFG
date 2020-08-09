@@ -133,7 +133,9 @@ h3{
   width: 150px;
   height: 40px;
 }
-
+.btnEditar:hover{
+  background-color: #00488C;
+}
 .btnContactar{
   background-color: #0069CC;
   color: white;
