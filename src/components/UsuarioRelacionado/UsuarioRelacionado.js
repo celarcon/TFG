@@ -103,7 +103,7 @@ export default class UsuarioRelacionado extends Component {
             <span className="txtNegrita">valoracion del usuario</span>
           <div className="w-100"></div>      
           <p><Rate disabled allowHalf value={this.state.valoracionMedia} /></p>
-          <h2>Comentarios</h2>      
+          <h2>Comentarios:</h2>      
         </div>
         <div className="scrollComentarios">
         {this.state.comments.map(comen =>
@@ -118,7 +118,7 @@ export default class UsuarioRelacionado extends Component {
               }
               datetime={
                 <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
-                  <span>{comen.updatedAt}</span>
+                  <span style={{color:'white'}}>{comen.updatedAt}</span>
                 </Tooltip>
               }
             />

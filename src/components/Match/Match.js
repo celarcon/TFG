@@ -11,7 +11,7 @@ const openNotification = () => {
     message: 'Revisa tu correo',
     description:
       'Genial!, has contactado con un usuarion mira en tu correo te habrá llegado un correo con información del contacto',
-    icon: <SmileOutlined style={{ color: '#0069CC', width: 300 }} />,
+    icon: <SmileOutlined style={{ color: '#0069CC' }} />,
   });
 };
 const scrollTop = () =>{
@@ -46,7 +46,8 @@ export default class Match extends Component {
             nombre: correo2.data.first_name+" "+correo2.data.last_name,
             producto1:prod1.data.nombre,
             producto2:prod2.data.nombre,
-            image: prod2.data.image
+            image1: prod2.data.image,
+            image2: prod1.data.image
         });
         await Axios.post('http://localhost:4000/users/enviarEmail',{
             email:correo2.data.email,
@@ -54,7 +55,8 @@ export default class Match extends Component {
             nombre: correo1.data.first_name+" "+correo1.data.last_name,
             producto1:prod2.data.nombre,
             producto2:prod1.data.nombre,
-            image: prod1.data.image
+            image1: prod1.data.image,
+            image2: prod2.data.image
         });
     }
     eliminaProd = async(e) => {

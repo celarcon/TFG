@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { login } from './UserFunctions'
+import logo from '../imagenes/logoTRADEAPP.svg';
 
 class Login extends Component {
 
@@ -35,9 +36,18 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container" style={{paddingTop:'10%'}}>
         <div className="row">
-          <div className="col-md-6 mt-5 mx-auto">
+        <div className="col-md-6 col-sm-12 mx-auto">
+          <p className="logoLogin">
+          <img src={logo} alt="logo" style={{width:"200px"}}/>
+          </p>
+          <p className="txtLogin">
+             Tu página de intercambio, sube tus productos, encuentra relacionados, ponte en contacto con ellos.
+             Dale una segunda vida a tus objetos.
+          </p>
+        </div>
+          <div className="col-md-6 col-sm-12">
             <form noValidate onSubmit={this.onSubmit}>
               <h1 className="h3 mb-3 font-weight-normal">Acceder a TradeApp</h1>
               <div className="form-group">

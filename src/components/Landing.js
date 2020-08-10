@@ -66,7 +66,7 @@ class Landing extends Component {
       <React.Fragment>
         {localStorage.usertoken ?
           <Router>
-            <Layout  style={{backgroundColor:'white'}}>
+            <Layout>
             <Switch>
               <Route path="/home/AñadirProducto" component={AñadirProducto}/>
               <Route path="/Usuario" component={Usuario}/>

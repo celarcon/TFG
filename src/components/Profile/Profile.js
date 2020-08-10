@@ -74,7 +74,7 @@ class Profile extends Component {
                 }
                 datetime={
                     <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
-                    <span>{comen.updatedAt}</span>
+                    <span style={{color:'white'}}>{comen.updatedAt}</span>
                     </Tooltip>
                 }
                 />
