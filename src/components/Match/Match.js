@@ -10,7 +10,7 @@ const openNotification = () => {
   notification.open({
     message: 'Revisa tu correo',
     description:
-      'Genial!, has contactado con un usuarion mira en tu correo te habrá llegado un correo con información del contacto',
+      'Genial!, has contactado con un usuario mira en tu correo te habrá llegado un correo con información del contacto',
     icon: <SmileOutlined style={{ color: '#0069CC' }} />,
   });
 };
@@ -73,8 +73,8 @@ export default class Match extends Component {
     }
     render() {
         return (
-            <div>
-                <h1>Tus productos relacionados</h1>
+            <div >
+                <h1 style={{paddingLeft:'10px'}}>Tus productos relacionados</h1>
                 {this.state.relacionados.map((rel,i)=>
                     <ProductosMatch 
                     contactar={this.contactar}

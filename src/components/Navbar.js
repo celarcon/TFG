@@ -77,11 +77,11 @@ class Landing extends Component {
         </button>
         {localStorage.usertoken ?
         <Link to="/home">
-          <img src={logo} alt="logo" style={{width:"20px"}}/> <span style={{color:"white", fontSize:"20px"}}>TRADEAPP</span>
+          <img src={logo} alt="logo" style={{width:"20px"}}/> <span style={{color:"white", fontSize:"20px", fontWeight:'500'}}>TRADEAPP</span>
         </Link>
         :
         <Link to="/">
-          <img src={logo} alt="logo" style={{width:"20px"}}/> <span style={{color:"white", fontSize:"20px"}}>TRADEAPP</span>
+          <img src={logo} alt="logo" style={{width:"20px"}}/> <span style={{color:"white", fontSize:"20px",fontWeight:'500'}}>TRADEAPP</span>
         </Link>
         }
         <div className="collapse navbar-collapse justify-content-md-center" id="navbar" >

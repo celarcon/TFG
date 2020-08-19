@@ -43,8 +43,8 @@ class Login extends Component {
           <img src={logo} alt="logo" style={{width:"200px"}}/>
           </p>
           <p className="txtLogin">
-             Tu página de intercambio, sube tus productos, encuentra relacionados, ponte en contacto con ellos.
-             Dale una segunda vida a tus objetos.
+             Tu página de intercambio, sube tus productos, encuentra relacionados, ponte en contacto con su usuario.
+             Dale una segunda vida a tus productos.
           </p>
         </div>
           <div className="col-md-6 col-sm-12">

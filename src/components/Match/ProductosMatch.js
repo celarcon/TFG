@@ -27,7 +27,7 @@ export default class ProductosMatch extends Component {
         return (
             <div >
             <Divider style={{borderColor: '#002140'}}/>
-            <div className="row justify-content-center " style={{ marginTop: '50px',width:'99%' }}>
+            <div className="row justify-content-center " style={{ marginTop: '50px',width:'99%',paddingLeft:'10px' }}>
                 <div className="col-sm-4">
                     <Link to={{ pathname: "/UsuarioRelacionado", state: { id: this.state.prod1.idPropietario } }}>
                         ver perfil

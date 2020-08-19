@@ -74,7 +74,15 @@ class Relacionados extends Component {
                         </div>
                     </div>
                     :
+                    <div>
                     <h1 className="paddingMobile"> No hay ningun producto seleccionado</h1>
+                    <p className="paddingMobile container">
+                        A tu Izquierda encontraras un listado con tus productos,
+                        selecciona uno para ver sus relacionados, si todavía no tienes ninguno
+                        sube un producto y interesate por otros productos, con suerte haréis match 
+                        y podreis contactar para el intercambio.  
+                    </p>
+                    </div>
                 }
             </div>
 
