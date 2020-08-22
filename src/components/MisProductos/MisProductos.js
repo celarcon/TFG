@@ -34,6 +34,7 @@ class MisProductos extends Component {
         await Axios.delete('http://localhost:4000/products/' + e);
         const res = await Axios.get('http://localhost:4000/products/misProductos/' + this.state.idPropietario);
         this.setState({ productos: res.data });
+        await Axios.delete('http://localhost:4000/relacionados/prod/' + e);
     }
 
     render() {
