@@ -1,7 +1,8 @@
 
 
 body{
-  font-family: Helvetica;
+  font-family: 'Raleway', sans-serif;
+  font-size: medium;
   font-weight: 550;
   background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
   background-size: cover;
@@ -12,14 +13,28 @@ body{
 .ant-layout{
   background: none;
 }
+@media (max-width: 700px){
 h2{
   font-weight: 800;
   font-size: 25px;
-}
-h3{
-  font-weight: 700;
-  font-size: 20px;
-}
+}}
+@media (min-width: 700px){
+  h2{
+    font-weight: 500;
+    font-size: 40px;
+}}
+
+@media (max-width: 700px){
+  h3{
+    font-weight: 700;
+    font-size: 20px;
+  }}
+  @media (min-width: 700px){
+  h3{
+      font-weight: 500;
+      font-size: 25px;
+}}
+
 @media (max-width: 700px){
 .txtLogin{
   color: white;
@@ -58,6 +73,19 @@ h3{
 @media (max-width: 700px){
   .paddingRelacionados{
     padding-left:20%;
+    position: unset;
+    width: 99%;
+    height: 35vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    text-align: center;
+  }
+}
+@media (min-width: 700px){
+  .paddingRelacionados{
+    padding-left:20%;
+    position: unset;
+    width: 99%;
   }
 }
 @media (max-width: 700px){
@@ -76,12 +104,13 @@ h3{
   overflow: hidden;
   overflow-y: scroll;
   position: absolute;
-  bottom: 0;
+ 
   text-align: center;
+
 }}
 @media (min-width: 700px){
   .scrollRelacionados{
-    height: 70vh;
+    height: 60vh;
     width: 100%;
     overflow: hidden;
     overflow-y: scroll;
@@ -94,7 +123,7 @@ h3{
 }
 @media (min-width: 700px){
 .scrollComentarios{
-  height: 55vh;
+  height: 50vh;
   width: 100%;
   overflow: hidden;
   overflow-y: scroll;

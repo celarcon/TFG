@@ -11,7 +11,7 @@ export default class InforAdmin extends Component {
     logOut= e =>{
         e.preventDefault();
         localStorage.removeItem('admintoken');
-        this.props.history.push(`/`);
+        this.props.history.push(`/Admin`);
       }
       componentDidMount=async()=>{
         var usuarios = await axios.get('http://localhost:4000/users');
@@ -28,14 +28,14 @@ export default class InforAdmin extends Component {
             <div>
                 {localStorage.admintoken ?
                 <div className="container">
-                    <h1>InforAdmin</h1>
+                    <h1>Información Admininstrador</h1>
                     <br/>
                     <p className="txtNegrita">Numero de usuarios: {this.state.usuarios}</p>
                     <p className="txtNegrita">Numero de productos: {this.state.productos}</p>
                     <p className="txtNegrita">Numero de productos interesados: {this.state.interesados}</p>
                     <p className="txtNegrita">Numero de productos relacionados: {this.state.relacionados}</p>
                     <br/><br/>
-                    <button className="btnEditar" onClick={this.logOut.bind(this)}>Cerrar sesion admin</button>
+                    <button className="btnEditar" onClick={this.logOut.bind(this)}>Cerrar sesion</button>
                 </div>
                 :
                 this.props.history.push(`/Admin`)}

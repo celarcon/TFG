@@ -39,7 +39,7 @@ class MisProductos extends Component {
     render() {
         return (
             <div className="col-md-12">
-                <h1>MisProductos</h1>
+                <h1>Mis Productos</h1>
                 <ul className="list-group">
                     {
                         this.state.productos.map((productos, i) =>
@@ -50,7 +50,7 @@ class MisProductos extends Component {
                                     </div>
                                     <div className="col-sm-12 col-md-10">
                                         <p><span className="txtNegrita">Nombre:</span> {productos.nombre}</p>
-                                        <p><span className="txtNegrita">Descripcion: </span>{productos.descripcion}</p>
+                                        <p><span className="txtNegrita">Descripción: </span>{productos.descripcion}</p>
                                         <p><span className="txtNegrita">Precio mínimo: </span>{productos.precioMin}€ - <span className="txtNegrita">Precio máximo: </span> {productos.precioMax}€</p>
                                         <p><span className="txtNegrita">Fecha de subida: </span>{productos.createdAt}</p>
                                     </div>

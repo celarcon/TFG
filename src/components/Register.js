@@ -54,7 +54,7 @@ class Register extends Component {
                   type="text"
                   className="form-control"
                   name="last_name"
-                  placeholder="Apellidos"
+                  placeholder="Apodo"
                   value={this.state.last_name}
                   onChange={this.onChange}
                   required

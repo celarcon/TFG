@@ -37,11 +37,11 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className="container paddingMobile">
+      <div className="container" style={{paddingLeft:'20%'}} >
         <div className="col-sm-8 justify-content-center align-self-center">
           <h1 className="text-center perfil">Perfil</h1>
         </div>
-        <table className="table col-md-6 mx-auto">
+        <table className="table col-md-6 mx-auto" style={{width:'90%'}} >
           <tbody>
             <tr>
               <td>Nombre</td>

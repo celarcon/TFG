@@ -32,6 +32,7 @@ function App() {
            <Route path="/Admin" component={Admin}/>
            <Route path="/InfoAdmin" component={InfoAdmin}/>
            <Route path="/UsuarioRelacionado" component={UsuarioRelacionado}/>
+           <Route path="/relacionados" component={Landing}/>
          </div>
        </div>
     </Router>

@@ -74,7 +74,7 @@ export default class Match extends Component {
     render() {
         return (
             <div >
-                <h1 style={{paddingLeft:'10px'}}>Tus productos relacionados</h1>
+                <h1 style={{paddingLeft:'10px'}}>Tus productos con Match</h1>
                 {this.state.relacionados.map((rel,i)=>
                     <ProductosMatch 
                     contactar={this.contactar}

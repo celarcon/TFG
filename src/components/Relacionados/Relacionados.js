@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProdRelacionado from './ProdRelacionado';
 
+
 class Relacionados extends Component {
     state = {
         busqueda: [],
@@ -29,19 +30,17 @@ class Relacionados extends Component {
             <div className="prodSeleccionado">
                 {this.props.ProdSelecionado ?
                     <div>
-                        <div className="paddingRelacionados">
+                        <div className="paddingRelacionados row">
                             <div className="col-sm-12">
                                 <h2>Producto seleccionado</h2>
                             </div>
-                            <table style={{margin:'0 auto'}}>
-                                <tr>
-                                    <td> <img src={'http://localhost:4000/products/get-image/' + this.props.ProdSelecionado.image} alt={this.props.ProdSelecionado.nombre} height="100" width="100"></img></td>
-                                    <td>
-                                        <p><span className="txtNegrita" >Nombre: </span>{this.props.ProdSelecionado.nombre}</p>
-                                        <p><span className="txtNegrita" >Descripción: </span><br/>{this.props.ProdSelecionado.descripcion}</p>
-                                    </td>
-                                </tr>
-                            </table>
+                               <div className="col-sm-12 col-md-4 col-lg-4">
+                               <img src={'http://localhost:4000/products/get-image/' + this.props.ProdSelecionado.image} alt={this.props.ProdSelecionado.nombre} height="100" width="100"></img>   
+                                </div>  
+                                <div className="col-sm-12 col-md-6 col-lg-6">
+                                    <p><span className="txtNegrita" >Nombre: </span>{this.props.ProdSelecionado.nombre}</p>
+                                    <p><span className="txtNegrita" >Descripción: </span><br/>{this.props.ProdSelecionado.descripcion}</p>
+                                </div>
                             <div className="col-sm-12">
                                 <h3>Productos relacionados:</h3>
                             </div>
